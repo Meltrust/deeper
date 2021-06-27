@@ -1,0 +1,2 @@
+class Deep < ApplicationRecord
+end

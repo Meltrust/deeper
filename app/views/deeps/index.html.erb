@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deeps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Deep</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deeps.each do |deep| %>
+      <tr>
+        <td><%= deep.deep %></td>
+        <td><%= link_to 'Show', deep %></td>
+        <td><%= link_to 'Edit', edit_deep_path(deep) %></td>
+        <td><%= link_to 'Destroy', deep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deep', new_deep_path %>

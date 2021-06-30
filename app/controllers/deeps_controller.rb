@@ -1,4 +1,5 @@
 class DeepsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_deep, only: %i[show edit update destroy]
 
   # GET /deeps or /deeps.json

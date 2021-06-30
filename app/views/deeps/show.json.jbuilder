@@ -1,1 +1,1 @@
-json.partial! "deeps/deep", deep: @deep
+json.partial! 'deeps/deep', deep: @deep

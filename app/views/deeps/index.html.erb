@@ -1,7 +1,4 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Deeps</h1>
-
 <table>
   <thead>
     <tr>
@@ -9,7 +6,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @deeps.each do |deep| %>
       <tr>
@@ -21,7 +17,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Deep', new_deep_path %>

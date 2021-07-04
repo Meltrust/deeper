@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/88315e3ece.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>Deeper</title>
@@ -14,51 +16,75 @@
     <main>
       <div class="container-fluid">
         <div class="row vh-100">
-          <div class="col-2 side-nav <%= 'd-none' if !user_signed_in? %> " ></div>
-          <div class="<%= user_signed_in? ? 'col-10 p-0' : 'col-12 p-0' %> ">
-            <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light">
-              <div class="container-fluid">
-                <a class="navbar-brand text-white fw-bold fs-2" href="#">Deeper</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                  <ul class="navbar-nav ">
-                    <li class="nav-item">
-                      <% if current_user %>
-                        <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link', method: :delete %>
-                      <% else %>
-                        <li class="nav-item">
-                          <%= link_to 'Login', user_session_path, class: 'nav-link' %>
-                        </li>
-                        <li class="nav-item">
-                          <%= link_to 'Sign up', new_registration_path(resource_name), class: 'nav-link' %>
-                        </li>
-                      <% end %>
+          <div class="col-2 col-lg-2 side-nav <%= 'd-none' if !user_signed_in? %> " >
+            <div class="row flex-column">
+              <a class="d-flex p-2 py-md-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
+                <figure class="w-auto margin-zero-auto">
+                  <img class= "m-1 headshot w-auto" src="https://d.newsweek.com/en/full/1577421/hank-gilman.png?w=63&amp;h=63&amp;f=f18b9a7364da071493072861d8b4448f" alt="">
+                </figure>
+                <div class="sidenav-user-badge-text fw-bold text-center w-auto sidenav-text-dark p-0">Gregore Vella</div>
+              </a>
+              <hr>
+              <nav class="nav nav-pills flex-column mb-auto p-0 text-center text-md-start sidenav-link-buttons ">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active fw-bold p-1 py-3 p-sm-3 w-auto" aria-current="page">
+                    <i class="bi bi-house-fill me-0 me-sm-2 ms-lg-4" style="font-size: 1rem; color: white;"></i>
+                    <span class= "d-none d-md-inline-block">HOME</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link fw-bold sidenav-text-dark w-auto p-1 py-3 p-sm-3">
+                    <i class="bi bi-person-fill me-0 me-sm-2 ms-lg-4"></i>
+                    <span class= "d-none d-md-inline-block">PROFILE<span>
+                      </a>
                     </li>
-                  </ul>
+                  </nav>
                 </div>
               </div>
-            </nav>
-            <% if notice.present? %>
-              <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-                <p class='m-'> <%= notice %> </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              <div class="<%= user_signed_in? ? 'col-10 col-lg-10 p-0' : 'col-12 p-0' %> ">
+                <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light">
+                  <div class="container-fluid">
+                    <a class="navbar-brand text-white fw-bold fs-2" href="#">Deeper</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon "></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                      <ul class="navbar-nav ">
+                        <li class="nav-item">
+                          <% if current_user %>
+                            <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link', method: :delete %>
+                          <% else %>
+                            <li class="nav-item">
+                              <%= link_to 'Login', user_session_path, class: 'nav-link' %>
+                            </li>
+                            <li class="nav-item">
+                              <%= link_to 'Sign up', new_registration_path(resource_name), class: 'nav-link' %>
+                            </li>
+                          <% end %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+                <% if notice.present? %>
+                  <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
+                    <p class='m-'> <%= notice %> </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <% end %>
+                <% if alert.present? %>
+                  <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
+                    <p class='m-'> <%= alert %> </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <% end %>
+                <div class="container-fluid">
+                  <%= yield %>
+                </div>
               </div>
-            <% end %>
-            <% if alert.present? %>
-              <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-                <p class='m-'> <%= alert %> </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            <% end %>
-            <div class="container-fluid">
-              <%= yield %>
             </div>
           </div>
-        </div>
-      </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
-</html>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </body>
+    </html>

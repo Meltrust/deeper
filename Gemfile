@@ -30,7 +30,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'listen', '~> 3.3'
+  gem 'rack-livereload'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rexml'
   gem 'spring'

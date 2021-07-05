@@ -27,8 +27,28 @@
   max-height: 100%;
 }
 
-.sidebar-borders {
-  border-bottom: 1px solid #273a4d;
+// .sidenav-border-color {
+//   border-color: #364958 !important;
+// }
+
+// .sidenav-user-badge-border {
+//   border-bottom: 1px solid #364958;
+// }
+
+.side-nav-followers-container {
+  border-bottom: 1px solid #24333d !important;
+}
+
+div.side-nav-followers-container:first-child {
+  border-right: 1px solid #24333d !important;
+}
+
+.sidenav-followers-border {
+  border-right: 1px solid #24333d !important;
+}
+
+.sidenav-followers-text {
+  font-size: calc(0.5em + 1vw);
 }
 
 .sidenav-text-dark {
@@ -51,7 +71,7 @@
 hr {
   margin: 0 !important;
   color: inherit;
-  background-color: currentColor;
+  background-color: #364958;
   border: 0;
   opacity: 0.25;
 }
@@ -59,7 +79,11 @@ hr {
 // Media for sm
 @media only screen and (min-width: 768px) {
   .sidenav-user-badge-text {
-    font-size: calc(0.4em + 1vw);
+    font-size: calc(0.3em + 1vw);
+  }
+
+  .sidenav-followers-text {
+    font-size: 1rem;
   }
 }
 

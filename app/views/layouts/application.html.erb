@@ -18,9 +18,9 @@
         <div class="row vh-100">
           <div class="col-2 col-lg-2 side-nav <%= 'd-none' if !user_signed_in? %> " >
             <div class="row flex-column">
-              <a class="d-flex p-2 py-md-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
+              <a class="d-flex p-2 py-md-3 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
                 <figure class="w-auto margin-zero-auto">
-                  <img class= "m-1 headshot w-auto" src="https://d.newsweek.com/en/full/1577421/hank-gilman.png?w=63&amp;h=63&amp;f=f18b9a7364da071493072861d8b4448f" alt="">
+                  <img class= "m-0 m-sm-1 headshot w-auto" src="https://d.newsweek.com/en/full/1577421/hank-gilman.png?w=63&amp;h=63&amp;f=f18b9a7364da071493072861d8b4448f" alt="">
                 </figure>
                 <div class="sidenav-user-badge-text fw-bold text-center w-auto sidenav-text-dark p-0">Gregore Vella</div>
               </a>
@@ -42,7 +42,7 @@
                 </div>
               </div>
               <div class="<%= user_signed_in? ? 'col-10 col-lg-10 p-0' : 'col-12 p-0' %> ">
-                <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light">
+                <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light py-4">
                   <div class="container-fluid">
                     <a class="navbar-brand text-white fw-bold fs-2" href="#">Deeper</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

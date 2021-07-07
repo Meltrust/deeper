@@ -1,4 +1,6 @@
-<h1>Deeps</h1>
+<!--
+
+<h1>Deeps</h1> 
 <table>
   <thead>
     <tr>
@@ -8,14 +10,71 @@
   </thead>
   <tbody>
     <% @deeps.each do |deep| %>
-      <tr>
-        <td><%= deep.deep %></td>
-        <td><%= link_to 'Show', deep %></td>
-        <td><%= link_to 'Edit', edit_deep_path(deep) %></td>
-        <td><%= link_to 'Destroy', deep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <tr>
+    <td><%= deep.deep %></td>
+    <td><%= link_to 'Show', deep %></td>
+    <td><%= link_to 'Edit', edit_deep_path(deep) %></td>
+    <td><%= link_to 'Destroy', deep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
 </table>
 <br>
 <%= link_to 'New Deep', new_deep_path %>
+-->
+<div class="row p0 m-0">
+  <div class="col-12 col-md-9">
+    <header class="row">
+      <nav class="nav col-12 p-0 border-bottom text-decoration-none">
+        <li class="nav-item p-3 position-relative secondary-top-nav-items">
+          <a href="#" class="nav-link nav-text-dark secondary-top-nav-items-text black-text ms-2">DEEPS</a>
+        </li>
+      </nav>
+    </header>
+    <main class="container d-flex flex-column px-1 px-md-4">
+      <div class="p-4 p-md-5 bg-white mt-4 shadow-sm rounded">
+        <label class="form-label fw-bold deep-text-dark">DEEP SOMETHING</label>
+        <input class="form-control p-3" autocomplete="off" placeholder="Compose new deep" type="text">
+      </div>
+      <section class="p-4 p-md-5 mt-4 bg-white shadow-sm rounded">
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold">3 NEW DEEPS</h6>
+        <article class="d-flex pt-3">
+          <figure class="w-auto mt-0 me-0 my-md-0 mb-2 me-lg-3 m-lg-0">
+            <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          </figure>
+          <div class="d-flex flex-column p-2 pt-0">
+            <p class="pb-3 mb-0 small lh-sm deep-text-dark">
+              We are all champions, as long as we are willing to beleive it. 
+            </p>
+            <strong class="blockquote-footer black-text d-block text-gray-dark m-0 align-self-end align-self-lg-stretch">Miguel Tapia</strong>
+          </div>
+        </article>
+        <!--It repeats here
+        -->
+        <article class="d-flex pt-3">
+          <figure class="w-auto mt-0 me-0 my-md-0 mb-2 me-lg-3 m-lg-0">
+            <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          </figure>
+          <div class="d-flex flex-column p-2 pt-0">
+            <p class="pb-3 mb-0 small lh-sm deep-text-dark">
+              Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.
+            </p>
+            <strong class="blockquote-footer black-text d-block text-gray-dark m-0 align-self-end align-self-lg-stretch">Miguel Tapia</strong>
+          </div>
+        </article>
+        <article class="d-flex pt-3">
+          <figure class="w-auto mt-0 me-0 my-md-0 mb-2 me-lg-3 m-lg-0">
+            <img class="m-0 m-sm-1 deeps-headshot" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          </figure>
+          <div class="d-flex flex-column p-2 pt-0">
+            <p class="pb-3 mb-0 small lh-sm deep-text-dark">
+              I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.
+            </p>
+            <strong class="blockquote-footer black-text d-block text-gray-dark m-0 align-self-end align-self-lg-stretch">Miguel Tapia</strong>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div class="border col-12 col-md-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum fugiat voluptas. Sequi nulla ab deserunt officiis quas, at perspiciatis naLorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum fugiat voluptas. Sequi nulla ab deserunt officiis quas, at perspiciatis nam in recusandae eos odit alias rem, corrupti a nihil.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum fugiat voluptas. Sequi nulla ab deserunt officiis quas, at perspiciatis nam in recusandae eos odit alias rem, corrupti a nihil.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum fugiat voluptas. Sequi nulla ab deserunt officiis quas, at perspiciatis nam in recusandae eos odit alias rem, corrupti a nihil.m in recusandae eos odit alias rem, corrupti a nihil.</div>
+</div>

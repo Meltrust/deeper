@@ -1,3 +1,17 @@
+html {
+  background-color: #f5f6f8;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  background-color: #f5f6f8;
+}
+
+h1.title {
+  font-weight: bold;
+}
+
 /* prettier-ignore */
 .brand-nav {
   background:
@@ -6,6 +20,14 @@
       rgba(87, 172, 239, 1) 0%,
       rgba(93, 173, 237, 1) 100%
     );
+}
+
+.main-light-background {
+  background-color: #f5f6f8;
+}
+
+aside {
+  z-index: 1;
 }
 
 /* prettier-ignore */
@@ -18,6 +40,10 @@
     );
 }
 
+.second-main-column {
+  margin-left: auto;
+}
+
 .margin-zero-auto {
   margin: 0 0 auto;
 }
@@ -25,6 +51,10 @@
 .headshot {
   max-width: 100%;
   max-height: 100%;
+}
+
+.deeps-headshot {
+  width: 55px;
 }
 
 // .sidenav-border-color {
@@ -36,7 +66,7 @@
 // }
 
 .side-nav-followers-container {
-  border-bottom: 1px solid #24333d !important;
+  border-bottom: none !important;
 }
 
 div.side-nav-followers-container:first-child {
@@ -51,7 +81,7 @@ div.side-nav-followers-container:first-child {
   font-size: calc(0.5em + 1vw);
 }
 
-.sidenav-text-dark {
+.nav-text-dark {
   color: #5e738b !important;
 }
 
@@ -76,7 +106,46 @@ hr {
   opacity: 0.25;
 }
 
+.secondary-top-nav-items {
+  top: 4%;
+  border-bottom: 4px solid #5daded;
+}
+
+.secondary-top-nav-items-text {
+  font-weight: 700 !important;
+}
+
+.black-text {
+  color: #2e3b4c !important;
+}
+
+.main-grid {
+  display: grid;
+  // grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem 1rem;
+}
+
+.deep-text-dark {
+  color: #9d9d9f;
+}
+
+.deep-text-blue {
+  color: #5daded;
+}
+
+.text-darkish-white {
+  color: #bdc9d5;
+}
+
 // Media for sm
+@media only screen and (min-width: 576px) {
+  .side-nav-followers-container {
+    border-bottom: none;
+  }
+}
+
+// Media for md (ipad and up)
 @media only screen and (min-width: 768px) {
   .sidenav-user-badge-text {
     font-size: calc(0.3em + 1vw);
@@ -85,10 +154,22 @@ hr {
   .sidenav-followers-text {
     font-size: 1rem;
   }
+
+  .side-nav-followers-container {
+    border-bottom: none;
+  }
 }
 
-@media only screen and (min-width: 900px) {
-  // .sidenav-link-buttons {
-  //   white-space: nowrap !important;
-  // }
+// Media for lg
+@media only screen and (min-width: 992px) {
+  .side-nav-followers-container {
+    border-bottom: 1px solid #24333d !important;
+  }
+}
+
+// Media for xl
+@media only screen and (min-width: 1200px) {
+  .side-nav-followers-container {
+    border-bottom: 1px solid #24333d !important;
+  }
 }

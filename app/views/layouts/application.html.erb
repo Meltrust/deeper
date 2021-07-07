@@ -13,90 +13,90 @@
     <title>Deeper</title>
   </head>
   <body>
-    <main>
-      <div class="container-fluid">
-        <div class="row vh-100">
-          <div class="col-2 col-lg-2 side-nav <%= 'd-none' if !user_signed_in? %> " >
-            <div class="row flex-column">
-              <a class="d-flex flex-wrap p-2 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
-                <figure class="w-auto mt-2 my-md-0 mb-2 m-lg-0">
-                  <img class= "m-0 m-sm-1 headshot w-auto" src="https://avatars.githubusercontent.com/u/57421823?s=60&v=4" alt="">
-                </figure>
-                <div class="sidenav-user-badge-text fw-bold text-center w-auto sidenav-text-dark p-0 pt-lg-2 text-capitalize">Miguel Tapia</div>
-              </a>
-              <hr>
-              <div class="d-flex p-0 m-0 flex-column ">
-                <div class="d-flex flex-column flex-xl-row text-white justify-content-evenly p-0 side-nav-followers-container" >
-                  <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-border sidenav-followers-text w-100">
-                    <div class="fw-bold">123</div>
-                    <div class="sidenav-text-dark">Followers</div>
-                  </div>
-                  <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-text w-100">
-                    <div class="fw-bold">245</div>
-                    <div class="sidenav-text-dark">Following</div>
-                  </div>
+    <div class="container-fluid vh-100">
+      <div class="row h-100">
+        <aside class="col-2 side-nav position-fixed h-100 <%= 'd-none' if !user_signed_in? %> " >
+          <div class="row flex-column">
+            <a class="d-flex flex-wrap p-2 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
+              <figure class="w-auto mt-2 my-md-0 mb-2 m-lg-0">
+                <img class= "m-0 m-sm-1 headshot w-auto" src="https://avatars.githubusercontent.com/u/57421823?s=60&v=4" alt="">
+              </figure>
+              <div class="sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize">Miguel Tapia</div>
+            </a>
+            <hr>
+            <div class="d-flex p-0 m-0 flex-column ">
+              <div class="d-flex flex-column flex-xl-row text-darkish-white justify-content-evenly p-0 side-nav-followers-container" >
+                <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-border sidenav-followers-text w-100">
+                  <div class="fw-bold">123</div>
+                  <div class="nav-text-dark">Followers</div>
                 </div>
-                <nav class="nav nav-pills flex-column mb-auto p-0 text-center text-md-start sidenav-link-buttons order-first order-xl-last">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link active fw-bold p-1 py-3 p-sm-3 w-auto text-white" aria-current="page">
-                      <i class="bi bi-house-fill me-0 me-sm-2 ms-lg-4"></i>
-                      <span class= "d-none d-md-inline-block">HOME</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link fw-bold sidenav-text-dark w-auto p-1 py-3 p-sm-3">
-                      <i class="bi bi-person-fill me-0 me-sm-2 ms-lg-4"></i>
-                      <span class= "d-none d-md-inline-block">PROFILE</span>
-                    </a>
-                  </li>
-                </nav>
+                <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-text w-100">
+                  <div class="fw-bold">245</div>
+                  <div class="nav-text-dark">Following</div>
+                </div>
               </div>
+              <nav class="nav nav-pills flex-column mb-auto p-0 text-center text-md-start sidenav-link-buttons order-first order-xl-last">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active fw-bold p-1 py-3 p-sm-3 w-auto text-white" aria-current="page">
+                    <i class="bi bi-house-fill me-0 me-sm-2 ms-lg-4"></i>
+                    <span class= "d-none d-md-inline-block">HOME</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link fw-bold nav-text-dark w-auto p-1 py-3 p-sm-3">
+                    <i class="bi bi-person-fill me-0 me-sm-2 ms-lg-4"></i>
+                    <span class= "d-none d-md-inline-block">PROFILE</span>
+                  </a>
+                </li>
+              </nav>
             </div>
           </div>
-          <div class="<%= user_signed_in? ? 'col-10 col-lg-10 p-0' : 'col-12 p-0' %> ">
-            <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light py-4">
-              <div class="container-fluid">
-                <a class="navbar-brand text-white fw-bold fs-2" href="#">Deeper</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                  <ul class="navbar-nav ">
-                    <li class="nav-item">
-                      <% if current_user %>
-                        <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link', method: :delete %>
-                      <% else %>
-                        <li class="nav-item">
-                          <%= link_to 'Login', user_session_path, class: 'nav-link' %>
-                        </li>
-                        <li class="nav-item">
-                          <%= link_to 'Sign up', new_registration_path(resource_name), class: 'nav-link' %>
-                        </li>
-                      <% end %>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-            <% if notice.present? %>
-              <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-                <p class='m-'> <%= notice %> </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            <% end %>
-            <% if alert.present? %>
-              <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-                <p class='m-'> <%= alert %> </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            <% end %>
+        </aside>
+        <div class="second-main-column <%= user_signed_in? ? 'col-10 p-0' : 'col-12 p-0' %> ">
+          <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light py-4">
             <div class="container-fluid">
-              <%= yield %>
+              <a class="navbar-brand text-white ms-0 ms-md-3" href="#">
+                <h1 class="fw-bold mb-0">Deeper</h1>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ">
+                  <li class="nav-item">
+                    <% if current_user %>
+                      <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0', method: :delete %>
+                    <% else %>
+                      <li class="nav-item">
+                        <%= link_to 'Login', user_session_path, class: 'nav-link' %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'nav-link' %>
+                      </li>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </nav>
+          <% if notice.present? %>
+            <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
+              <p class='m-'> <%= notice %> </p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+          <% if alert.present? %>
+            <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
+              <p class='m-'> <%= alert %> </p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+          <div class="container-fluid p-0">
+            <%= yield %>
           </div>
         </div>
       </div>
-    </main>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

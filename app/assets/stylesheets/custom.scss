@@ -108,6 +108,9 @@ hr {
 
 .secondary-top-nav-items {
   top: 4%;
+}
+
+.secondary-top-nav-items-active {
   border-bottom: 4px solid #5daded;
 }
 
@@ -158,12 +161,24 @@ hr {
   .side-nav-followers-container {
     border-bottom: none;
   }
+
+  .secondary-top-nav-items {
+    line-height: 1.25;
+  }
 }
 
 // Media for lg
 @media only screen and (min-width: 992px) {
   .side-nav-followers-container {
     border-bottom: 1px solid #24333d !important;
+  }
+
+  .secondary-top-nav-items {
+    line-height: 1.5;
+  }
+
+  .secondary-top-nav-items-not-active {
+    line-height: 1.7rem !important;
   }
 }
 

@@ -133,6 +133,10 @@ hr {
   color: #9d9d9f;
 }
 
+.deep-text-dark-semitransparent {
+  color: #9d9d9fc2;
+}
+
 .deep-text-blue {
   color: #5daded;
 }
@@ -206,5 +210,21 @@ hr {
 @media only screen and (min-width: 1200px) {
   .side-nav-followers-container {
     border-bottom: 1px solid #24333d !important;
+  }
+
+  .who-to-follow-section-container {
+    max-height: 49rem;
+  }
+
+  .who-to-follow-section {
+    max-height: 41rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .deeps-section {
+    overflow-y: auto;
+    scrollbar-width: none;
+    max-height: 28rem;
   }
 }

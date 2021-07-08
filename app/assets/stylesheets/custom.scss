@@ -141,6 +141,15 @@ hr {
   color: #bdc9d5;
 }
 
+.who-to-follow-nav-borders {
+  border-bottom: none;
+}
+
+.who-to-follow-items {
+  display: flex;
+  flex-direction: column;
+}
+
 // Media for sm
 @media only screen and (min-width: 576px) {
   .side-nav-followers-container {
@@ -166,6 +175,13 @@ hr {
     line-height: 1.25;
   }
 }
+// Only tablets
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+  .who-to-follow-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 // Media for lg
 @media only screen and (min-width: 992px) {
@@ -178,7 +194,11 @@ hr {
   }
 
   .secondary-top-nav-items-not-active {
-    line-height: 1.7rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .who-to-follow-nav-borders {
+    border-bottom: 1px solid #dee2e6 !important;
   }
 }
 

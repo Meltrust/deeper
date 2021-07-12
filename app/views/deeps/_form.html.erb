@@ -2,7 +2,6 @@
   <% if deep.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(deep.errors.count, "error") %> prohibited this deep from being saved:</h2>
-
       <ul>
         <% deep.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,12 +9,10 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :deep %>
-    <%= form.text_area :deep %>
+    <%= form.text_area :text %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

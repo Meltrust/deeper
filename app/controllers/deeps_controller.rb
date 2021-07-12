@@ -64,6 +64,6 @@ class DeepsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def deep_params
-    params.require(:deep).permit(:deep)
+    params.require(:deep).permit(:text)
   end
 end

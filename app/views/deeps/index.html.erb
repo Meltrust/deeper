@@ -11,7 +11,7 @@
   <tbody>
     <% @deeps.each do |deep| %>
   <tr>
-    <td><%= deep.deep %></td>
+    <td><%= deep.text %></td>
     <td><%= link_to 'Show', deep %></td>
     <td><%= link_to 'Edit', edit_deep_path(deep) %></td>
     <td><%= link_to 'Destroy', deep, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -8,4 +8,6 @@ class User < ApplicationRecord
                        format: { with: /^[a-zA-Z0-9_.]*$/, message: 'Only letters and numbers', multiline: true }
   validates :email, presence: true
   validates :fullname, presence: true
+
+  has_many :deeps
 end

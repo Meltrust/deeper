@@ -22,7 +22,9 @@
               <figure class="w-auto mt-2 my-md-0 mb-2 m-lg-0">
                 <img class= "m-0 m-sm-1 headshot w-auto rounded" src="https://avatars.githubusercontent.com/u/57421823?s=60&v=4" alt="">
               </figure>
-              <div class="sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize">Miguel Tapia</div>
+              <% if current_user %>
+                <div class="sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize"><%= current_user.fullname %></div>
+              <% end %>
             </a>
             <hr>
             <div class="d-flex p-0 m-0 flex-column ">

@@ -8,6 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    # @posts = @user.posts.ordered_by_most_recent
+    @deeps = @user.deeps.ordered_by_most_recent
   end
 end

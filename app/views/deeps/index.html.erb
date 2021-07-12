@@ -32,10 +32,7 @@
       </nav>
     </header>
     <main class="container d-flex flex-column px-1 px-md-4">
-      <form class="p-2 p-md-5 bg-white mt-4 mt-lg-5 shadow-sm rounded">
-        <label class="form-label fw-bold deep-text-dark-semitransparent">DEEP SOMETHING</label>
-        <input class="form-control p-2 p-lg-3" autocomplete="off" placeholder="Compose new deep" type="text">
-      </form>
+      <%= render 'form', deep: @deep %>
       <section class="p-2 p-md-5 mt-4 bg-white shadow-sm rounded deeps-section">
         <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold">4 NEW DEEPS</h6>
         <article class="d-flex pt-3">

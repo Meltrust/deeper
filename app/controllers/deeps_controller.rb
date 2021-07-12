@@ -5,6 +5,7 @@ class DeepsController < ApplicationController
   # GET /deeps or /deeps.json
   def index
     @deeps = Deep.all
+    @deep = Deep.new
   end
 
   # GET /deeps/1 or /deeps/1.json
@@ -20,16 +21,12 @@ class DeepsController < ApplicationController
 
   # POST /deeps or /deeps.json
   def create
-    @deep = Deep.new(deep_params)
+    @deep = current_user.deeps.new(deep_params)
 
-    respond_to do |format|
-      if @deep.save
-        format.html { redirect_to @deep, notice: 'Deep was successfully created.' }
-        format.json { render :show, status: :created, location: @deep }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @deep.errors, status: :unprocessable_entity }
-      end
+    if @deep.save
+      redirect_to deeps_path, notice: 'Deep was posted.'
+    else
+      render :index, alert: 'Deep was not created'
     end
   end
 

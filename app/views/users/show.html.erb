@@ -1,2 +1,93 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row p0 m-0 h-100">
+  <div class="col-12 col-xl-9">
+    <div class="row col-12 p-0 w-auto">
+      <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="img-fluid p-0 cover-img" alt="">
+    </div>
+    <header class="row">
+      <nav class="nav col-12 p-0 border-bottom text-decoration-none">
+        <li class="nav-item p-0 p-sm-2 p-lg-3 position-relative secondary-top-nav-items-active secondary-top-nav-items">
+          <a href="#" class="nav-link nav-text-dark secondary-top-nav-items-text ms-1 ms-sm-3 ms-lg-2 black-text ms-2">DEEPS</a>
+        </li>
+      </nav>
+    </header>
+    <main class="container d-flex flex-column px-1 px-md-4">
+      <div class=" p-2 p-md-5 mt-4 bg-white shadow-sm rounded ">
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold">ALL DEEPS</h6>
+        <section class="deeps-section-container">
+          <%= render @deeps %>
+        </section>
+      </div>
+    </main>
+  </div>
+  <aside class="border border-start-0 border-top-0 border-bottom-0  col-12 col-xl-3 who-to-follow-section-container">
+    <section class="row flex-column profile-stats-container">
+      <div class="d-flex justify-content-center align-items-center border profile-stats-pic-items">
+        <div class="follow-button-pic-container"><i aria-hidden="true" class=" position-relative fas fa-plus-circle deep-text-dark-semitransparent follow-button-pic "></i>
+        </div>
+        <figure class="profile-stats-pic-container mx-3">
+          <img class="rounded-circle profile-stats-pic" src="https://avatars.githubusercontent.com/u/57421823?v=4" alt="">
+        </figure>
+        <div class="follow-button-pic-container"><i aria-hidden="true" class=" position-relative fas fa-plus-circle deep-text-dark-semitransparent follow-button-pic "></i>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+    </section>
+    <header class="row">
+      <nav class="nav col-12 mt-3 mt-sm-1 p-lg-0 who-to-follow-nav-borders text-decoration-none justify-content-center justify-content-lg-start text-start p-0 mt-lg-0 border-start-0">
+        <li class="nav-item p-3 px-lg-3 pt-lg-3 secondary-top-nav-items-not-active position-relative secondary-top-nav-items">
+          <a href="#" class="nav-link deep-text-dark-semitransparent secondary-top-nav-items-text ms-1 ms-sm-3 ms-lg-2 ms-2">FOLLOWED BY</a>
+        </li>
+      </nav>
+    </header>
+    <section class="p-2 p-md-0 mt-0 mt-sm-1 mt-lg-5 who-to-follow-items ms-md-5 ms-lg-0 who-to-follow-section">
+      <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
+        <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
+          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+        </figure>
+        <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
+          <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
+            <strong class="black-text d-block text-gray-dark m-0 "><%= @user.fullname %></strong>
+            <p class="pb-3 mb-0 small lh-lg deep-text-dark"> <%= @user.deeps.count %> deeps
+            </p>
+          </div>
+          <div class="follow-button-container ms-0 me-xl-2 me-xxl-0 fs-1"><i aria-hidden="true" class=" position-relative fas fa-plus-circle deep-text-dark-semitransparent follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i>
+          </div>
+        </div>
+      </article>
+      <!--It repeats here
+        -->
+      <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
+        <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
+          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+        </figure>
+        <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
+          <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
+            <strong class="black-text d-block text-gray-dark m-0 ">Miguel Tapia</strong>
+            <p class="pb-3 mb-0 small lh-lg deep-text-dark">8 deeps
+            </p>
+          </div>
+          <div class="follow-button-container ms-0 me-xl-2 me-xxl-0 fs-1"><i aria-hidden="true" class=" position-relative fas fa-plus-circle deep-text-dark-semitransparent follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i>
+          </div>
+        </div>
+      </article>
+      <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
+        <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
+          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+        </figure>
+        <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
+          <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
+            <strong class="black-text d-block text-gray-dark m-0 ">Miguel Tapia</strong>
+            <p class="pb-3 mb-0 small lh-lg deep-text-dark">8 deeps
+            </p>
+          </div>
+          <div class="follow-button-container ms-0 me-xl-2 me-xxl-0 fs-1"><i aria-hidden="true" class=" position-relative fas fa-plus-circle deep-text-dark-semitransparent follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i>
+          </div>
+        </div>
+      </article>
+    </section>
+  </aside>
+</div>

@@ -8,6 +8,21 @@ html {
 body {
   height: 100%;
   background-color: #f5f6f8;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-bar::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+  width: 0;
+  background: transparent;
 }
 
 h1.title {
@@ -156,6 +171,31 @@ hr {
   flex-direction: column;
 }
 
+.cover-img {
+  height: 25rem;
+}
+
+.profile-stats-container {
+  height: 25rem;
+  border-bottom: none;
+}
+
+.profile-stats-pic-items {
+  height: 79.6%;
+}
+
+// .profile-stats-pic-container {
+//   flex: 1;
+// }
+
+.profile-stats-pic {
+  max-width: 10rem;
+}
+
+.follow-button-pic-container {
+  font-size: 3.5rem !important;
+}
+
 // Media for sm
 @media only screen and (min-width: 576px) {
   .side-nav-followers-container {
@@ -204,6 +244,10 @@ hr {
   }
 
   .who-to-follow-nav-borders {
+    border-bottom: 1px solid #dee2e6 !important;
+  }
+
+  .profile-stats-container {
     border-bottom: 1px solid #dee2e6 !important;
   }
 }

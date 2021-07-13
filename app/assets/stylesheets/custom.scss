@@ -177,7 +177,6 @@ hr {
 }
 
 .profile-stats-container {
-  height: 25rem;
   border-bottom: none;
 }
 
@@ -193,7 +192,7 @@ hr {
   max-width: 10rem;
 }
 
-.1-pic-container {
+.profile-pic-container {
   font-size: 3.5rem !important;
 }
 
@@ -267,6 +266,7 @@ hr {
 
   .profile-stats-container {
     border-bottom: 1px solid #dee2e6 !important;
+    height: 25rem;
   }
 }
 
@@ -292,7 +292,15 @@ hr {
     max-height: 22rem;
   }
 
-  .follow-button-pic {
-    display: block;
+  .deeps-section-container-userprofile {
+    overflow-y: auto;
+    scrollbar-width: none;
+    max-height: 10.8rem;
+  }
+
+  .followed-by-section {
+    max-height: 17rem;
+    overflow-y: auto;
+    scrollbar-width: none;
   }
 }

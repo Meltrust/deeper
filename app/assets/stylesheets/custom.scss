@@ -3,6 +3,7 @@
 html {
   background-color: #f5f6f8;
   height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -151,7 +152,7 @@ hr {
 }
 
 .deep-text-dark-semitransparent {
-  color: #9d9d9fc2;
+  color: #9d9d9fb2;
 }
 
 .deep-text-blue {
@@ -172,7 +173,7 @@ hr {
 }
 
 .cover-img {
-  height: 25rem;
+  height: 18rem;
 }
 
 .profile-stats-container {
@@ -192,8 +193,21 @@ hr {
   max-width: 10rem;
 }
 
-.follow-button-pic-container {
+.1-pic-container {
   font-size: 3.5rem !important;
+}
+
+.profile-pic-fullname {
+  font-size: 1.5rem;
+}
+
+.follow-button {
+  color: #9d9d9f49;
+}
+
+.follow-button-pic {
+  font-size: 2.5rem;
+  // display: none;
 }
 
 // Media for sm
@@ -219,6 +233,10 @@ hr {
 
   .secondary-top-nav-items {
     line-height: 1.25;
+  }
+
+  .cover-img {
+    height: 25rem;
   }
 }
 // Only tablets
@@ -272,5 +290,9 @@ hr {
     overflow-y: auto;
     scrollbar-width: none;
     max-height: 22rem;
+  }
+
+  .follow-button-pic {
+    display: block;
   }
 }

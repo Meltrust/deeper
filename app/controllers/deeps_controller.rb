@@ -4,7 +4,11 @@ class DeepsController < ApplicationController
 
   # GET /deeps or /deeps.json
   def index
-    @deeps = Deep.all
+    # @deeps = Deep.all
+    @deep = Deep.new
+    @user = User.find_by(params[:id])
+    @users = User.all
+    timeline_deeps
   end
 
   # GET /deeps/1 or /deeps/1.json
@@ -20,16 +24,12 @@ class DeepsController < ApplicationController
 
   # POST /deeps or /deeps.json
   def create
-    @deep = Deep.new(deep_params)
+    @deep = current_user.deeps.new(deep_params)
 
-    respond_to do |format|
-      if @deep.save
-        format.html { redirect_to @deep, notice: 'Deep was successfully created.' }
-        format.json { render :show, status: :created, location: @deep }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @deep.errors, status: :unprocessable_entity }
-      end
+    if @deep.save
+      redirect_to root_path, notice: 'Deep was posted.'
+    else
+      redirect_to root_path, alert: 'Deep was not created'
     end
   end
 
@@ -58,12 +58,19 @@ class DeepsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+
+  def timeline_deeps
+    user_and_following_deeps = current_user.id
+    # + current_user.friends.map(&:id)
+    @timeline_deeps ||= Deep.where(user_id: user_and_following_deeps).ordered_by_most_recent.includes(:user)
+  end
+
   def set_deep
     @deep = Deep.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def deep_params
-    params.require(:deep).permit(:deep)
+    params.require(:deep).permit(:text)
   end
 end

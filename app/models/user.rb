@@ -9,5 +9,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :fullname, presence: true
 
-  has_many :deeps
+  has_many :deeps, dependent: :destroy
+  has_one_attached :photo
 end

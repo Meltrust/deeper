@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # get 'user/index'
   # get 'user/show'
-  resources :users, only: [:index, :show]
+  resources :users
   
   resources :deeps 
 end

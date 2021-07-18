@@ -1,0 +1,18 @@
+development:
+  cloud_name: dvxcld
+  api_key: "388364635391717"
+  api_secret: MsnD8K3QOkbburNAHbuClzAxaBQ
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dvxcld
+  api_key: "388364635391717"
+  api_secret: MsnD8K3QOkbburNAHbuClzAxaBQ
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dvxcld
+  api_key: "388364635391717"
+  api_secret: MsnD8K3QOkbburNAHbuClzAxaBQ
+  enhance_image_tag: true
+  static_file_support: false

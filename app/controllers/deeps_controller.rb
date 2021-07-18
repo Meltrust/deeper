@@ -35,14 +35,10 @@ class DeepsController < ApplicationController
 
   # PATCH/PUT /deeps/1 or /deeps/1.json
   def update
-    respond_to do |format|
-      if @deep.update(deep_params)
-        format.html { redirect_to @deep, notice: 'Deep was successfully updated.' }
-        format.json { render :show, status: :ok, location: @deep }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @deep.errors, status: :unprocessable_entity }
-      end
+    if @deep.update(deep_params)
+      redirect_to @deep, notice: 'Deep was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

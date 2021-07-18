@@ -1,5 +1,12 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
+input#user_photo {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
 html {
   background-color: #f5f6f8;
   height: 100vh;
@@ -69,10 +76,13 @@ aside {
 .headshot {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .deeps-headshot {
   width: 55px;
+  border-radius: 0.5rem;
 }
 
 // .sidenav-border-color {
@@ -190,7 +200,9 @@ hr {
 // }
 
 .profile-stats-pic {
-  max-width: 10rem;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .profile-pic-container {
@@ -208,6 +220,10 @@ hr {
 .follow-button-pic {
   font-size: 2.5rem;
   // display: none;
+}
+
+.mtp10 {
+  margin-top: 10%;
 }
 
 // Media for sm
@@ -272,6 +288,11 @@ hr {
 
   .profile-stats-pic-items {
     border: 1px solid #dee2e6 !important;
+  }
+
+  .headshot {
+    object-fit: fill;
+    border-radius: 0.5rem;
   }
 }
 

@@ -9,5 +9,17 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :fullname, presence: true
 
-  has_many :deeps
+  has_many :deeps, dependent: :destroy
+  has_one_attached :photo
+
+  after_commit :add_default_photo, on: %i[create update]
+
+  private
+
+  def add_default_photo
+    return if photo.attached?
+
+    photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_photo.png')),
+                 filename: 'default_photo.png')
+  end
 end

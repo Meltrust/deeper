@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/88315e3ece.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>Deeper</title>
   </head>
@@ -18,10 +19,16 @@
       <div class="row h-100">
         <aside class="col-2 side-nav  <%= 'd-none' if !user_signed_in? %> " >
           <div class="row flex-column">
-            <a class="d-flex flex-wrap p-2 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
-              <figure class="w-auto mt-2 my-md-0 mb-2 m-lg-0">
-                <img class= "m-0 m-sm-1 headshot w-auto rounded" src="https://avatars.githubusercontent.com/u/57421823?s=60&v=4" alt="">
-              </figure>
+            <a class="d-flex flex-wrap p-1 px-md-4 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" href="#">
+              <% if current_user && current_user.photo.attached? %>
+                <figure class="w-auto mt-1 my-md-0 mb-2 m-lg-0">
+                  <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 headshot w-auto', :width=>60, :height=>60, :gravity=>"face", :crop=>"thumb") %>
+                </figure>
+              <% else %>
+                <figure class="w-auto mt-1 my-md-0 mb-2 m-lg-0">
+                  <img class= "m-0 m-sm-1 headshot w-auto" src="https://avatars.githubusercontent.com/u/57421823?s=60&v=4">
+                </figure>
+              <% end %>
               <% if current_user %>
                 <div class="sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize"><%= current_user.fullname %></div>
               <% end %>

@@ -12,7 +12,7 @@
     </header>
     <main class="container d-flex flex-column px-1 px-md-4">
       <div class=" p-2 p-md-5 mt-4 bg-white shadow-sm rounded ">
-        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold">ALL DEEPS</h6>
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold text-uppercase"><%= @user.deeps.count > 0 ? 'ALL DEEPS' : (@user.fullname.split.first) + ' HAS NO DEEPS YET' %></h6>
         <section class="deeps-section-container-userprofile">
           <%= render @deeps %>
         </section>
@@ -23,14 +23,40 @@
     <section class="row flex-column profile-stats-container mt-5 mt-lg-0">
       <div class="d-flex flex-column justify-content-center align-items-center  profile-stats-pic-items mb-1 mb-lg-0">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <figure class="profile-stats-pic-container mx-3 mb-3">
-            <img class="rounded-circle profile-stats-pic" src="https://avatars.githubusercontent.com/u/57421823?v=4" alt="">
-          </figure>
-          <div class="follow-button-pic-container follow-button"><i aria-hidden="true" class=" position-relative fas fa-plus-circle  follow-button-pic "></i>
-          </div>
+          <% if current_user.photo.attached? %>
+            <figure class="profile-stats-pic-container mx-3 mb-3">
+              <%= cl_image_tag(current_user.photo.key, class: 'rounded-circle profile-stats-pic', :width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+            </figure>
+          <% else %>
+            <figure class="profile-stats-pic-container mx-3 mb-3">
+              <img class="rounded-circle profile-stats-pic" src="https://avatars.githubusercontent.com/u/57421823?v=4" alt="">
+            </figure>
+          <% end %>
+          <% if current_user %>
+            <%= form_with model: @user, id: 'photo-form' do |form| %>
+              <%= form.file_field :photo, direct_upload: true, required: true, class: "form-control form-control-sm d-none", onchange: "form.submit()"  %>
+              <button id="photo-input" type="button" class="btn btn-outline-secondary btn-sm">change</button>
+              <script>
+                $('#photo-input').click(function(){
+                              $('#user_photo').click();
+                              // disable button
+                              $(this).prop("disabled", true);
+                              $('#photo-input').html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Changing...`);
+                              setTimeout(function() {
+                                    $('#photo-input').prop('disabled', false);
+                                    $('#photo-input').html(`change`);
+                              }, 15000);
+                              $('#photo-input').prop("disabled", false);
+                              });
+              </script>
+            <% end %>
+          <% else %>
+            <div class="follow-button-pic-container follow-button"><i aria-hidden="true" class=" position-relative fas fa-plus-circle  follow-button-pic "></i>
+            </div>
+          <% end %>
         </div>
-        <strong class="black-text profile-pic-fullname"><%= @user.fullname %></strong>
-        <div class="deep-text-dark">@<%= @user.username %></div>
+        <strong class="black-text profile-pic-fullname mt-2 text-capitalize"><%= @user.fullname %></strong>
+        <div class="deep-text-dark ">@<%= @user.username %></div>
       </div>
       <div class="d-flex flex-column flex-xl-row text-darkish-white justify-content-evenly p-0 profile-stats-container-items">
         <div class="d-flex flex-column p-3 px-lg-2 p-xxl-3 align-items-center justify-content-evenly  w-100 border-start border-end">
@@ -57,7 +83,7 @@
     <section class="p-2 p-md-0 mt-0 mt-sm-1 mt-lg-5 who-to-follow-items ms-md-5 ms-lg-0 followed-by-section">
       <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
         <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb", :radius=>"max") %>
         </figure>
         <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
           <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
@@ -73,7 +99,7 @@
           -->
       <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
         <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb", :radius=>"max") %>
         </figure>
         <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
           <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
@@ -87,7 +113,7 @@
       </article>
       <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
         <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb", :radius=>"max") %>
         </figure>
         <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
           <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
@@ -101,7 +127,7 @@
       </article>
       <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
         <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb", :radius=>"max") %>
         </figure>
         <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
           <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
@@ -115,21 +141,7 @@
       </article>
       <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
         <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
-        </figure>
-        <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
-          <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
-            <strong class="black-text d-block text-gray-dark m-0 "><%= @user.fullname %></strong>
-            <p class="pb-3 mb-0 small lh-lg deep-text-dark"> @<%= @user.username %>
-            </p>
-          </div>
-          <div class="follow-button-container ms-0 me-xl-2 me-xxl-0 fs-1"><i aria-hidden="true" class=" position-relative fas fa-plus-circle  follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i>
-          </div>
-        </div>
-      </article>
-      <article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
-        <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
-          <img class="m-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle" src="https://avatars.githubusercontent.com/u/57421823?s=60&amp;v=4" alt="">
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb", :radius=>"max") %>
         </figure>
         <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
           <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">

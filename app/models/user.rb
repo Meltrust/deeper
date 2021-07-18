@@ -17,9 +17,9 @@ class User < ApplicationRecord
   private
 
   def add_default_photo
-    unless photo.attached?
-      photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_photo.png')),
-                   filename: 'default_photo.png')
-    end
+    return if photo.attached?
+
+    photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_photo.png')),
+                 filename: 'default_photo.png')
   end
 end

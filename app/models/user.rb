@@ -11,8 +11,10 @@ class User < ApplicationRecord
 
   has_many :deeps, dependent: :destroy
   has_one_attached :photo
+  has_one_attached :cover_image
 
   after_commit :add_default_photo, on: %i[create update]
+  after_commit :add_default_cover, on: %i[create update]
 
   private
 
@@ -21,5 +23,12 @@ class User < ApplicationRecord
 
     photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_photo.png')),
                  filename: 'default_photo.png')
+  end
+
+  def add_default_cover
+    return if cover_image.attached?
+
+    cover_image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-cover-image.png')),
+                       filename: 'default-cover-image.png')
   end
 end

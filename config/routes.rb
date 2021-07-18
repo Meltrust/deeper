@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :followings
   root "deeps#index"
   devise_for :users
 

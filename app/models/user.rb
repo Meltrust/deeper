@@ -11,4 +11,15 @@ class User < ApplicationRecord
 
   has_many :deeps, dependent: :destroy
   has_one_attached :photo
+
+  after_commit :add_default_photo, on: %i[create update]
+
+  private
+
+  def add_default_photo
+    unless photo.attached?
+      photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_photo.png')),
+                   filename: 'default_photo.png')
+    end
+  end
 end

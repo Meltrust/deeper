@@ -76,6 +76,8 @@ aside {
 .headshot {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .deeps-headshot {
@@ -219,6 +221,10 @@ hr {
   // display: none;
 }
 
+.mtp10 {
+  margin-top: 10%;
+}
+
 // Media for sm
 @media only screen and (min-width: 576px) {
   .side-nav-followers-container {
@@ -281,6 +287,11 @@ hr {
 
   .profile-stats-pic-items {
     border: 1px solid #dee2e6 !important;
+  }
+
+  .headshot {
+    object-fit: fill;
+    border-radius: 0.5rem;
   }
 }
 

@@ -12,7 +12,7 @@
     </header>
     <main class="container d-flex flex-column px-1 px-md-4">
       <div class=" p-2 p-md-5 mt-4 bg-white shadow-sm rounded ">
-        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold">ALL DEEPS</h6>
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold text-uppercase"><%= @user.deeps.count > 0 ? 'ALL DEEPS' : (@user.fullname.split.first) + ' HAS NO DEEPS YET' %></h6>
         <section class="deeps-section-container-userprofile">
           <%= render @deeps %>
         </section>
@@ -47,11 +47,6 @@
                                     $('#photo-input').html(`change`);
                               }, 15000);
                               $('#photo-input').prop("disabled", false);
-                              // add spinner to button
-                
-                
-                
-                
                               });
               </script>
             <% end %>
@@ -60,8 +55,8 @@
             </div>
           <% end %>
         </div>
-        <strong class="black-text profile-pic-fullname mt-2"><%= @user.fullname %></strong>
-        <div class="deep-text-dark">@<%= @user.username %></div>
+        <strong class="black-text profile-pic-fullname mt-2 text-capitalize"><%= @user.fullname %></strong>
+        <div class="deep-text-dark ">@<%= @user.username %></div>
       </div>
       <div class="d-flex flex-column flex-xl-row text-darkish-white justify-content-evenly p-0 profile-stats-container-items">
         <div class="d-flex flex-column p-3 px-lg-2 p-xxl-3 align-items-center justify-content-evenly  w-100 border-start border-end">

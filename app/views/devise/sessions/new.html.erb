@@ -1,19 +1,22 @@
 <div class="container">
   <% if (notice.present? || alert.present?) %>
-    <div class="row justify-content-center mt-3  mt-md-3">
+    <div class="row flex-column flex-lg-row justify-content-center align-items-center mt-1  mt-md-5 p-3 p-md-0 p-xl-5">
     <% else %>
-      <div class="row justify-content-center mt-5  mt-md-5">
+      <div class="row flex-column flex-lg-row justify-content-center align-items-center mt-1  mt-md-5 p-3 p-md-0 p-xl-5">
       <% end %>
-      <div class= "col-sm-12 col-auto">
+      <div class="col-sm-6">
+        <figure class='col-12 p-3 p-lg-5 mb-1 mb-md-4 mb-lg-5'><%= image_tag ("welcome_PNG12.png"), class: 'col-12' %></figure>
+      </div>
+      <div class= "col-sm-6 p-lg-3">
         <h2>Log in</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="mb-3">
             <%= f.label :email, class: 'form-label'%><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
           </div>
           <div class="mb-3">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', required: true %>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="mb-3">

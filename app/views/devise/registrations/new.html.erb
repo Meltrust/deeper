@@ -1,31 +1,51 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="row flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start mt-1  mt-md-5 p-3 p-md-0 p-xl-5">
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="col-sm-6">
+      <figure class='col-12 p-3 p-lg-5 mb-1 mb-md-4 mb-lg-5'><%= image_tag ("welcome_PNG12.png"), class: 'col-12' %></figure>
+    </div>
+    <div class= "col-sm-6 p-lg-3">
+      <h2>Sign up</h2>
+      <br>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="mb-3">
+          <%= f.label :email, class: 'form-label' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :username, class: 'form-label' %><br />
+          <%= f.text_field :username, required: true, class: 'form-control'%>
+        </div>
+        <div class="mb-3">
+          <%= f.label :fullname, class: 'form-label' %><br />
+          <%= f.text_field :fullname, required: true, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :password, class: 'form-label' %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", required: true, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :password_confirmation, class: 'form-label' %><br />
+          <span id='message'></span>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, class: 'form-control' %>
+        </div>
+        <br>
+        <div class="mb-3">
+          <%= f.submit "Sign up", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :fullname %><br />
-    <%= f.text_field :fullname %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
+</div>
+<script>
+  $('#user_password, #user_password_confirmation').on('keyup', function () {
+    if ($('#user_password').val() == $('#user_password_confirmation').val()) {
+      $('#message').html('Passwords match').css('color', 'green');
+    } else
+      $('#message').html('Passwords do not match').css('color', 'red');
+  });
+</script>

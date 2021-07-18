@@ -1,7 +1,30 @@
 <div class="row p0 m-0 h-100">
   <div class="col-12 col-xl-9 border-end">
-    <div class="row col-12 p-0 w-auto">
-      <img src="https://i.pinimg.com/originals/db/21/e7/db21e74d5e783c67b0fabe94581dee73.jpg" class="img-fluid p-0 cover-img" alt="">
+    <div class="row col-12 p-0 w-auto position-relative cover-container">
+      <% if current_user.cover_image.attached? %>
+        <%= cl_image_tag(current_user.cover_image.key, class: 'img-fluid p-0 cover-img', :opacity=>80, :effect=>"auto_brightness") %>
+      <% else %>
+        <img src="https://ss.jikoome.com/images/Default/default.jpg" class="img-fluid p-0 cover-img" alt="">
+      <% end %>
+      <% if current_user %>
+        <%= form_with model: @user, id: 'cover-form' do |form| %>
+          <%= form.file_field :cover_image, direct_upload: true, required: true, class: "form-control form-control-sm d-none cover_form", onchange: "form.submit()"  %>
+          <button id="cover-input" type="button" class="btn btn-outline-secondary btn-sm">change</button>
+          <script>
+            $('#cover-input').click(function(){
+                          $('#user_cover_image').click();
+                          // disable button
+                          $(this).prop("disabled", true);
+                          $('#cover-input').html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Changing...`);
+                          setTimeout(function() {
+                                $('#cover-input').prop('disabled', false);
+                                $('#cover-input').html(`change`);
+                          }, 10000);
+                          $('#cover-input').prop("disabled", false);
+                          });
+          </script>
+        <% end %>
+      <% end %>
     </div>
     <header class="row">
       <nav class="nav col-12 p-0 border-bottom text-decoration-none">
@@ -45,7 +68,7 @@
                               setTimeout(function() {
                                     $('#photo-input').prop('disabled', false);
                                     $('#photo-input').html(`change`);
-                              }, 15000);
+                              }, 10000);
                               $('#photo-input').prop("disabled", false);
                               });
               </script>

@@ -184,6 +184,7 @@ hr {
 
 .cover-img {
   height: 18rem;
+  object-fit: cover;
 }
 
 .profile-stats-container {
@@ -194,10 +195,6 @@ hr {
   height: 79.6%;
   border: none;
 }
-
-// .profile-stats-pic-container {
-//   flex: 1;
-// }
 
 .profile-stats-pic {
   height: 150px;
@@ -224,6 +221,18 @@ hr {
 
 .mtp10 {
   margin-top: 10%;
+}
+
+.cover-container {
+  position: relative;
+  top: -0.8px;
+}
+
+#cover-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
 }
 
 // Media for sm
@@ -253,6 +262,11 @@ hr {
 
   .cover-img {
     height: 25rem;
+  }
+
+  #cover-form {
+    top: 0;
+    left: 0;
   }
 }
 // Only tablets
@@ -294,6 +308,11 @@ hr {
     object-fit: fill;
     border-radius: 0.5rem;
   }
+
+  #cover-form {
+    top: 0;
+    left: 0;
+  }
 }
 
 // Media for xl
@@ -328,5 +347,15 @@ hr {
     max-height: 17rem;
     overflow-y: auto;
     scrollbar-width: none;
+  }
+}
+
+// Media for xxl
+
+@media only screen and (min-width: 1400px) {
+  #cover-form {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

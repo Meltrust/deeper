@@ -4,22 +4,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 gem 'binding_of_caller'
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cloudinary'
+gem 'devise'
+gem 'jbuilder', '~> 2.7'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'webpacker', '~> 5.0'
-
-gem 'jbuilder', '~> 2.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-gem 'devise'
-
-gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'better_errors'
@@ -46,5 +43,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

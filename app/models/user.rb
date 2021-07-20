@@ -50,6 +50,8 @@ class User < ApplicationRecord
 
   # ---- END OF FOLLOWING ASSOCIATIONS ----
 
+  has_many :likes, dependent: :destroy
+
   # Photo and cover pics associations.
   # Attach photo and cover pic
   has_one_attached :photo

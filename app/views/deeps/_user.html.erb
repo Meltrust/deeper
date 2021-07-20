@@ -1,1 +1,21 @@
-
+<article class="d-flex p-2 p-md-0 ms-0 justify-content-start justify-content-lg-start pb-lg-3 ms-lg-0 who-to follow-items">
+  <figure class="w-auto mt-0 me-0 my-md-0 mb-2 ms-lg-4 ms-xl-0 ms-xxl-4 m-lg-0">
+    <%= cl_image_tag(user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot rounded-circle', :width=>55, :height=>55, :gravity=>"face", :radius=>"max", :crop=>"thumb") %>
+  </figure>
+  <div class="d-flex justify-content-between w-100 me-3 me-xl-0 me-xxl-3">
+    <div class="d-flex flex-column p-2 pt-0 ms-2 ms-md-0 ms-xl-0 ms-xxl-4 mt-1">
+      <strong class="black-text d-block text-gray-dark m-0 "><%= user.fullname %></strong>
+      <p class="pb-3 mb-0 small lh-lg deep-text-dark"> @<%= user.username %>
+      </p>
+    </div>
+    <div class="follow-button-container ms-0 me-xl-2 me-xxl-0 fs-1">
+      <% if @current_user.followeds.include?(user) %>
+      <% else %>
+        <%= link_to ("<i class=' position-relative fas fa-plus-circle  follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0'></i>").html_safe, follow_user_path(user), method: 'post' %>
+        <!--
+        <a href="<%= follow_user_path(user) %>" method="POST"><i aria-hidden="true" class=" position-relative fas fa-plus-circle  follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i></a>
+-->
+      <% end %>
+    </div>
+  </div>
+</article>

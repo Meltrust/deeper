@@ -26,12 +26,12 @@ class User < ApplicationRecord
   # The users ID can then be associated to the Following model scheme as the follower.
 
   # Returns an array of follows a user gave to someone else (given follows.)
-  has_many :followed_users, foreign_key: :follower_id, class_name: 'Following'
+  has_many :followed_users, foreign_key: :follower_id, class_name: 'Following', dependent: :destroy
 
   # Says that a user has many followeds through the followed_users established in the line above.
 
   # Returns an array of other users who the user has followed
-  has_many :followeds, through: :followed_users
+  has_many :followeds, through: :followed_users, dependent: :destroy
   # Rails can infer the source, or one can be specific: source: :followed
 
   # BE FOLLOWED BY OTHER USERS.
@@ -40,12 +40,12 @@ class User < ApplicationRecord
   # be used to associate a users ID to the follow as the followed.
 
   # Will return an array of follows for the given user instance (received follows.)
-  has_many :following_users, foreign_key: :followed_id, class_name: 'Following'
+  has_many :following_users, foreign_key: :followed_id, class_name: 'Following', dependent: :destroy
 
   # A user has many followers through the following_users established in the line above.
 
   # Will return an array of users who follow the user instance
-  has_many :followers, through: :following_users
+  has_many :followers, through: :following_users, dependent: :destroy
   # Rails can infer the source, or one can be specific: source: :follower
 
   # ---- END OF FOLLOWING ASSOCIATIONS ----

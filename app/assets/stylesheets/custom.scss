@@ -214,9 +214,12 @@ hr {
   color: #9d9d9f49;
 }
 
+.follow-button-checked {
+  color: #9d9d9fbb;
+}
+
 .follow-button-pic {
   font-size: 2.5rem;
-  // display: none;
 }
 
 .mtp10 {
@@ -233,6 +236,21 @@ hr {
   top: 0;
   left: 0;
   padding: 0;
+}
+
+.likes-container {
+  font-size: 0.875rem;
+  position: relative;
+  top: 0.05rem;
+}
+
+.likes-count {
+  font-size: 0.875rem;
+}
+
+.like-button {
+  font-size: 0.875rem;
+  height: 21px;
 }
 
 // Media for sm
@@ -269,6 +287,7 @@ hr {
     left: 0;
   }
 }
+
 // Only tablets
 @media only screen and (min-width: 768px) and (max-width: 900px) {
   .who-to-follow-items {

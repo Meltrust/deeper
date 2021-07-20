@@ -56,12 +56,13 @@ class DeepsController < ApplicationController
   def follow
     @user = User.find(params[:id])
     current_user.followeds << @user
-    # redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def unfollow
     @user = User.find(params[:id])
     current_user.followed_users.find_by(followed_id: @user.id).destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -70,18 +71,18 @@ class DeepsController < ApplicationController
 
   # correct this=> not follower, should be followed
   def timeline_deeps
-    user_and_following_deeps = [current_user.id] + current_user.followers.map(&:id)
+    user_and_following_deeps = [current_user.id] + current_user.followeds.map(&:id)
     @timeline_deeps ||= Deep.where(user_id: user_and_following_deeps).ordered_by_most_recent.includes(:user)
   end
 
   def followsection_users
     not_followed_users = current_user.followeds.map(&:id)
-    @followsection_users ||= User.where(user_id: not_followed_users).includes(:user)
+    @followsection_users ||= User.where.not(id: not_followed_users).where.not(id: current_user.id)
   end
 
   def followedbysection_users
-    followed_users = current_user.followers.map(&:id)
-    @followedbysection_users ||= User.where(user_id: followed_users)
+    followed_users = @user.followers.map(&:id)
+    @followedbysection_users ||= User.where(id: followed_users)
   end
 
   # User.where("id NOT IN ?", ids)

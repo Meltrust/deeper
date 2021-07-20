@@ -6,7 +6,7 @@ module ApplicationHelper
           (content_tag :span, 'HOME', class: 'd-none d-md-inline-block p-md-0 p-lg-2')
       end
     elsif current_user && current_page?(root_path || deeps_path)
-      link_to user_path(current_user.id),
+      link_to root_path,
               class: 'active text-white nav-link fw-bold w-auto p-1 py-3 p-sm-3 data-toogle' do
         raw('<i class="bi bi-house-fill me-0 me-sm-2 ms-lg-4"></i>') +
           (content_tag :span, 'HOME', class: 'd-none d-md-inline-block p-md-0 p-lg-2')

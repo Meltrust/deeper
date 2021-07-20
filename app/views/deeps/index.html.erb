@@ -10,7 +10,7 @@
     <main class="container d-flex flex-column px-1 px-md-4">
       <%= render 'form', deep: @deep %>
       <div class=" p-2 p-md-5 mt-4 bg-white shadow-sm rounded ">
-        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold"><%= (current_user.deeps.count > 0) ? (current_user.deeps.count.to_s) + ' NEW DEEPS' : (current_user.fullname.split.first) + ' HAS NO DEEPS YET' %></h6>
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold"><%= (@timeline_deeps.count > 0) ? (@timeline_deeps.count.to_s) + ' NEW DEEPS' : 'NO DEEPS YET' %></h6>
         <section class="deeps-section-container">
           <%= render @timeline_deeps %>
         </section>
@@ -26,9 +26,7 @@
       </nav>
     </header>
     <section class="p-2 p-md-0 mt-0 mt-sm-1 mt-lg-5 who-to-follow-items ms-md-5 ms-lg-0 who-to-follow-section">
-      <!--
-      <%# render @followsection_users %>
-      -->
+      <%= render @followsection_users %>
     </section>
   </aside>
 </div>

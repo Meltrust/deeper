@@ -16,7 +16,7 @@
 
 ![SCREENSHOT](app/assets/images/responsive.png)
 
-## Video presentation!!
+## Video presentation
 
 https://www.loom.com/share/a4a58954d7c64befb2a7bf15a9732d35
 
@@ -42,10 +42,6 @@ https://www.loom.com/share/a4a58954d7c64befb2a7bf15a9732d35
 - Ruby on Rails v6.1
 - Cloudinary
 
-
-### Video presentation
-
-https://www.loom.com/share/a4a58954d7c64befb2a7bf15a9732d35
 
 
 ### Prerequisites

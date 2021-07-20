@@ -1,15 +1,15 @@
 class LikesController < ApplicationController
-  before_action :find_like, only: [:destroy]
   before_action :find_deep
+  before_action :find_like, only: [:destroy]
 
   def create
     @deep.likes.create(user_id: current_user.id)
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @like.destroy if already_liked?
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   def find_deep

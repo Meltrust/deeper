@@ -19,46 +19,8 @@
   <body>
     <div class="container-fluid vh-100 no-bar">
       <div class="row h-100">
-        <% if current_user %>
-          <aside class="col-2 side-nav" >
-            <div class="row flex-column">
-              <%= link_to user_path(current_user.id), class: "d-flex flex-wrap p-1 px-md-4 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly  flex-column flex-md-row text-decoration-none" do %>
-                <% if current_user.photo.attached? %>
-                  <figure class="w-auto mt-1 my-md-0 mb-2 m-lg-0">
-                    <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 headshot w-auto', :width=>60, :height=>60, :gravity=>"face", :crop=>"thumb") %>
-                  </figure>
-                <% else %>
-                  <figure class="w-auto mt-1 my-md-0 mb-2 m-lg-0">
-                    <img class= "m-0 m-sm-1 headshot w-auto" src="default_photo.png">
-                  </figure>
-                <% end %>
-                <div class="sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize"><%= current_user.fullname %></div>
-              <% end %>
-              <hr>
-              <div class="d-flex p-0 m-0 flex-column ">
-                <div class="d-flex flex-column flex-xl-row text-darkish-white justify-content-evenly p-0 side-nav-followers-container" >
-                  <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-border sidenav-followers-text w-100">
-                    <div class="fw-bold"><%= current_user.followers.count %></div>
-                    <div class="nav-text-dark">Followers</div>
-                  </div>
-                  <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-text w-100">
-                    <div class="fw-bold"><%= current_user.followeds.count %></div>
-                    <div class="nav-text-dark">Following</div>
-                  </div>
-                </div>
-                <nav class="nav nav-pills flex-column mb-auto p-0 text-center text-md-start sidenav-link-buttons order-first order-xl-last">
-                  <li class="nav-item">
-                    <%= left_nav_home %>
-                  </li>
-                  <li class="nav-item">
-                    <%= left_nav_profile %>
-                  </li>
-                </nav>
-              </div>
-            </div>
-          </aside>
-        <% end %>
-        <div class="second-main-column <%= user_signed_in? ? 'col-10 p-0' : 'col-12 p-0' %> ">
+        <%= render 'layouts/left_sidenav' %>
+        <div class="second-main-column <%= second_main_column_cols %> ">
           <nav class="navbar navbar-expand-lg navbar-light brand-nav border-bottom border-light py-3 py-sm-4">
             <div class="container-fluid">
               <a class="navbar-brand text-white ms-0 ms-md-3" href="#">
@@ -69,39 +31,20 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ">
-                  <% if rails_admin_user? %>
-                    <li class="nav-item">
-                      <%= link_to 'Admin',  rails_admin_path,  class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0' %>
-                    </li>
-                  <% end %>
                   <li class="nav-item">
-                    <% if current_user %>
-                      <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0', method: :delete %>
-                    <% else %>
-                      <li class="nav-item">
-                        <%= link_to 'Login', user_session_path, class: 'nav-link' %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'nav-link' %>
-                      </li>
-                    <% end %>
+                    <%= admin_link %>
+                  </li>
+                  <li class="nav-item">
+                    <%= signup_link %>
+                  </li>
+                  <li class="nav-item">
+                    <%= logout_link %>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
-          <% if notice.present? %>
-            <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-              <p class='m-'> <%= notice %> </p>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <% end %>
-          <% if alert.present? %>
-            <div class="alert alert-info mb-0 alert-dismissible fade show" role="alert">
-              <p class='m-'> <%= alert %> </p>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <% end %>
+          <%= render 'layouts/alerts' %>
           <div class="container-fluid p-0">
             <%= yield %>
           </div>

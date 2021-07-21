@@ -1,6 +1,63 @@
 module ApplicationHelper
+  # Number of cols for the second-main-column
+  def second_main_column_cols
+    if user_signed_in?
+      'col-10 p-0'
+    else
+      'col-12 p-0'
+    end
+  end
+
   def rails_admin_user?
-    current_user && (current_user.id = (1 || 2))
+    user_signed_in? && current_user.id == 2
+  end
+
+  def admin_link
+    return unless rails_admin_user?
+
+    content_tag :li, class: 'nav-item' do
+      link_to 'Admin', rails_admin_path, class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0'
+    end
+  end
+
+  def logout_link
+    return unless user_signed_in?
+
+    link_to 'Logout', destroy_user_session_path,
+            class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0', method: :delete
+  end
+
+  def signup_link
+    return if user_signed_in?
+
+    link_to 'Sign up', new_registration_path(resource_name),
+            class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0'
+  end
+
+  def notices
+    return unless notice.present?
+
+    content_tag :div, class: 'alert alert-info mb-0 alert-dismissible fade show', role: 'alert' do
+      concat(content_tag(:p, notice, class: 'm-')) +
+        concat('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'.html_safe)
+    end
+  end
+
+  def alerts
+    return unless alert.present?
+
+    content_tag :div, class: 'alert alert-info mb-0 alert-dismissible fade show', role: 'alert' do
+      concat(content_tag(:p, alert, class: 'm-')) +
+        concat('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'.html_safe)
+    end
+  end
+
+  def user_followers(userf)
+    userf.followers.count
+  end
+
+  def user_followeds(userf)
+    userf.followeds.count
   end
 
   def left_nav_home

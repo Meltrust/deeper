@@ -1,5 +1,16 @@
 module ApplicationHelper
   # Number of cols for the second-main-column
+  def like_or_dislike_btn(deep)
+    like = Like.find_by(deep: deep, user: current_user)
+    if like
+      link_to "<i class='bi bi-heart-fill d-inline-block like-button like-button-liked ms-1'></i>".html_safe,
+              deep_like_path(deep, like), class: 'black-text likes-container', method: :delete
+    else
+      link_to "<i class='bi bi-heart-fill d-inline-block like-button follow-button ms-1'></i>".html_safe,
+              deep_likes_path(deep), class: 'black-text likes-container', method: :post
+    end
+  end
+
   def second_main_column_cols
     if user_signed_in?
       'col-10 p-0'

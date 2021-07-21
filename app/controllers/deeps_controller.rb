@@ -11,6 +11,7 @@ class DeepsController < ApplicationController
     timeline_deeps
     followsection_users
     followedbysection_users
+    liked?
   end
 
   # GET /deeps/1 or /deeps/1.json
@@ -65,11 +66,14 @@ class DeepsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def liked?
+    @pre_like = @deep.likes.find { |like| like.user_id == current_user.id }
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
 
-  # correct this=> not follower, should be followed
   def timeline_deeps
     user_and_following_deeps = [current_user.id] + current_user.followeds.map(&:id)
     @timeline_deeps ||= Deep.where(user_id: user_and_following_deeps).ordered_by_most_recent.includes(:user)

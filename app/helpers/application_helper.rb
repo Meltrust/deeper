@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def rails_admin_user?
+    current_user && (current_user.id = (1 || 2))
+  end
+
   def left_nav_home
     if current_user && !current_page?(root_path || deeps_path)
       link_to root_path, class: 'nav-text-dark nav-link fw-bold w-auto p-1 py-3 p-sm-3 data-toogle' do

@@ -6,10 +6,12 @@ ruby '2.7.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cloudinary'
 gem 'devise'
+gem 'figaro'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
+gem 'rails_admin', '~> 2.0'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?

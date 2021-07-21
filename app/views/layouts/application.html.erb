@@ -69,6 +69,11 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ">
+                  <% if rails_admin_user? %>
+                    <li class="nav-item">
+                      <%= link_to 'Admin',  rails_admin_path,  class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0' %>
+                    </li>
+                  <% end %>
                   <li class="nav-item">
                     <% if current_user %>
                       <%= link_to 'Logout', destroy_user_session_path,  class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0', method: :delete %>

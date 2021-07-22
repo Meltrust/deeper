@@ -177,6 +177,12 @@ hr {
 .cover-img {
   height: 18rem;
   object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cover-img:hover {
+  opacity: 0.7;
 }
 
 .profile-stats-container {
@@ -192,7 +198,91 @@ hr {
   height: 150px;
   width: 150px;
   object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.profile-stats-pic:hover {
+  opacity: 0.7;
+}
+
+// Modal with caption for photo
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption,
+#caption-cover {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content,
+#caption,
+#caption-cover {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close,
+.close-cover {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-cover:focus,
+.close-cover:hover,
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+// End of modal photo with caption
 
 .profile-pic-container {
   font-size: 3.5rem !important;
@@ -247,6 +337,13 @@ hr {
 
 .like-button-liked {
   color: #9d9d9fbb;
+}
+
+// Only small screens
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 
 // Media for sm

@@ -1,7 +1,34 @@
 <div class="row p0 m-0 h-100">
   <div class="col-12 col-xl-9 border-end">
     <div class="row col-12 p-0 w-auto position-relative cover-container">
-      <%= cl_image_tag(@user.cover_image.key, class: 'img-fluid p-0 cover-img', :width=>1500, :height=>500, :opacity=>80, :effect=>"auto_brightness") %>
+      <%= cl_image_tag(@user.cover_image.key, id:'my-cover', class: 'img-fluid p-0 cover-img', :width=>1500, :height=>800, :opacity=>80, :effect=>"auto_brightness") %>
+      <div id="my-cover-container" class="modal">
+        <span class="close-cover">&times;</span>
+        <img class="modal-content" id="my-cover-modal-expanded">
+        <div id="caption-cover"></div>
+      </div>
+      <script>
+        // Get the modal
+        var modal = document.getElementById('my-cover-modal-container');
+        
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById('my-cover');
+        var modalImg = document.getElementById("my-cover-modal-expanded");
+        var captionText = document.getElementById("caption-cover");
+        img.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt;
+        }
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close-cover")[0];
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+      </script>
       <%= cover_button(@user) %>
     </div>
     <script>
@@ -38,8 +65,36 @@
       <div class="d-flex flex-column justify-content-center align-items-center  profile-stats-pic-items mb-1 mb-lg-0">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <figure class="profile-stats-pic-container mx-3 mb-3">
-            <%= cl_image_tag(@user.photo.key, class: 'rounded-circle profile-stats-pic', :width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+            <%= cl_image_tag(@user.photo.key, id: 'my-photo', class: 'rounded-circle profile-stats-pic', :width=>150, :height=>150, alt: @user.fullname,  :gravity=>"face", :radius=>"max", :crop=>"fill") %>
           </figure>
+          <!-- The Modal -->
+          <div id="my-photo-modal-container" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="my-photo-modal-expanded">
+            <div id="caption"></div>
+          </div>
+          <script>
+            // Get the modal
+            var modal = document.getElementById('my-photo-modal-container');
+            
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById('my-photo');
+            var modalImg = document.getElementById("my-photo-modal-expanded");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+          </script>
           <%= profile_pic_button(@user) %>
           <script>
             $('#photo-input').click(function(){

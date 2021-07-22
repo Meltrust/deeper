@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 5169f7b03761b927ffa2bea39cd14b55c6bb0ca5
+  branch: master
+  specs:
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/mimemagicrb/mimemagic.git
   revision: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
   ref: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
@@ -102,12 +110,6 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    database_cleaner (2.0.1)
-      database_cleaner-active_record (~> 2.0.0)
-    database_cleaner-active_record (2.0.1)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -123,6 +125,11 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubi (1.10.0)
     eventmachine (1.2.7)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.15.3)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
@@ -381,8 +388,9 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cloudinary
-  database_cleaner
   devise
+  factory_bot_rails
+  faker!
   figaro
   guard
   guard-livereload (~> 2.5)

@@ -15,4 +15,4 @@ test:
   api_key: <%= ENV['api_key'] %>
   api_secret: <%= ENV['api_secret'] %>
   enhance_image_tag: true
-  static_file_support: false
+  static_file_support: true

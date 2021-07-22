@@ -6,6 +6,7 @@ ruby '2.7.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cloudinary'
 gem 'devise'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
@@ -19,7 +20,7 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'rexml'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '>= 1.0', '< 2.0'

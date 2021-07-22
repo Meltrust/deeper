@@ -1,17 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
-    it 'returns http success' do
-      get '/user/index'
-      expect(response).to have_http_status(:success)
-    end
-  end
-
+  let(:valid_session) { {} }
   describe 'GET /show' do
     it 'returns http success' do
-      get '/user/show'
-      expect(response).to have_http_status(:success)
+      sign_in(:users)
+      get '/users/show'
+      expect(response).to have_http_status(:redirect)
     end
   end
 end

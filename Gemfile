@@ -19,8 +19,9 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'awesome_print'
   gem 'factory_bot_rails'
+  gem 'pry'
   gem 'rexml'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '>= 1.0', '< 2.0'

@@ -1,6 +1,6 @@
 require 'capybara/rspec'
 
-RSpec.describe 'Authenticating' do
+RSpec.describe 'Signing in' do
   before :each do
     User.create(username: 'Taps', fullname: 'migs taps', email: 'tapsysync@outlook.com', password: 'tapstapstapsy')
   end

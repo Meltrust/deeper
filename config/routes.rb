@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users, only: [:show]
 
-  resources :deeps do
+  resources :deeps, only: [:index, :create] do
         resources :likes, only: [:create, :destroy]
   end
   

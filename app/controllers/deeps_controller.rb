@@ -14,16 +14,10 @@ class DeepsController < ApplicationController
     liked?
   end
 
-  # GET /deeps/1 or /deeps/1.json
-  def show; end
-
   # GET /deeps/new
   def new
     @deep = Deep.new
   end
-
-  # GET /deeps/1/edit
-  def edit; end
 
   # POST /deeps or /deeps.json
   def create
@@ -33,24 +27,6 @@ class DeepsController < ApplicationController
       redirect_to root_path, notice: 'Deep was posted.'
     else
       redirect_to root_path, alert: 'Deep was not created'
-    end
-  end
-
-  # PATCH/PUT /deeps/1 or /deeps/1.json
-  def update
-    if @deep.update(deep_params)
-      redirect_to @deep, notice: 'Deep was successfully updated.'
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /deeps/1 or /deeps/1.json
-  def destroy
-    @deep.destroy
-    respond_to do |format|
-      format.html { redirect_to deeps_url, notice: 'Deep was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

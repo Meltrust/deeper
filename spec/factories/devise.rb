@@ -6,6 +6,5 @@ FactoryBot.define do
     password { Faker::Internet.password }
     username { Faker::Name.first_name }
     fullname { Faker::Name.name }
-    # id { 50 }
   end
 end

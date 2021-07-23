@@ -364,10 +364,6 @@ hr {
 
 // Media for md (ipad and up)
 @media only screen and (min-width: 768px) {
-  .sidenav-user-badge-text {
-    font-size: calc(0.3em + 1vw);
-  }
-
   .sidenav-followers-text {
     font-size: 1rem;
   }
@@ -433,6 +429,10 @@ hr {
   #cover-form {
     top: 0;
     left: 0;
+  }
+
+  .sidenav-user-badge-text {
+    font-size: calc(0.3em + 1vw);
   }
 }
 

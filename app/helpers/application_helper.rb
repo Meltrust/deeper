@@ -1,5 +1,9 @@
 module ApplicationHelper
   # Number of cols for the second-main-column
+  def truncated_name(user)
+    user.fullname.split.select { |w| w.length <= 7 }.join(' ')
+  end
+
   def like_or_dislike_btn(deep)
     like = Like.find_by(deep: deep, user: current_user)
     if like
@@ -20,7 +24,7 @@ module ApplicationHelper
   end
 
   def rails_admin_user?
-    user_signed_in? && current_user.id == 2
+    user_signed_in? && ((current_user.username == 'miguelDVX') || (current_user.username == 'meltrustDVX'))
   end
 
   def admin_link

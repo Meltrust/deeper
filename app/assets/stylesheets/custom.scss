@@ -397,6 +397,10 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
+  .modal-contents-cover {
+    width: 90%;
+  }
 }
 
 // Media for lg

@@ -8,6 +8,8 @@ class DeepsController < ApplicationController
     @deep = Deep.new
     @user = User.find_by(params[:id])
     @users = User.all
+    @user_agent = request.user_agent
+    @client = DeviceDetector.new(@user_agent)
     timeline_deeps
     followsection_users
     followedbysection_users

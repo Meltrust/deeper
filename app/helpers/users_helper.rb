@@ -12,6 +12,21 @@ module UsersHelper
     end
   end
 
+  def cover_img(client, user)
+    case client.device_type
+    when 'desktop'
+      cl_image_tag(user.cover_image.key, id: 'my-cover', class: 'img-fluid p-0 cover-img', width: 1200, height: 500,
+                                         gravity: 'auto', crop: 'fill', effect: 'auto_brightness')
+    when 'tablet'
+      cl_image_tag(user.cover_image.key, id: 'my-cover', class: 'img-fluid p-0 cover-img', width: 700, height: 400,
+                                         gravity: 'auto', crop: 'fill', effect: 'auto_brightness')
+
+    else
+      cl_image_tag(user.cover_image.key, id: 'my-cover', class: 'img-fluid p-0 cover-img', width: 500, height: 300,
+                                         gravity: 'auto', crop: 'fill', effect: 'auto_brightness')
+    end
+  end
+
   def user_deeps_header(user)
     if user.deeps.count.positive?
       "ALL #{user.fullname.split.first} 's deeps"

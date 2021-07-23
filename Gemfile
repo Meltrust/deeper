@@ -5,6 +5,7 @@ ruby '2.7.3'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cloudinary'
+gem 'device_detector'
 gem 'devise'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'

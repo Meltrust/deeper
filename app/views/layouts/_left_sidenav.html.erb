@@ -5,7 +5,7 @@
         <%= content_tag :figure, class: "w-auto mt-1 my-md-0 mb-2 m-lg-0" do %>
           <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 headshot w-auto', :width=>60, :height=>60, :gravity=>"face", :crop=>"thumb") %>
         <% end %>
-        <%= content_tag :div, truncated_name(current_user), class: 'sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize' %>
+        <%= content_tag :div, truncated_name(@client, current_user), class: 'sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize' %>
       <% end %>
       <hr>
       <div class="d-flex p-0 m-0 flex-column ">

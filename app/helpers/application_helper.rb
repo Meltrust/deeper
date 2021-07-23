@@ -1,7 +1,12 @@
 module ApplicationHelper
   # Number of cols for the second-main-column
-  def truncated_name(user)
-    user.fullname.split.select { |w| w.length <= 7 }.join(' ')
+  def truncated_name(client, user)
+    if client.device_type == 'smartphone'
+      user.fullname.split.select { |w| w.length <= 7 }.join(' ')
+
+    else
+      current_user.fullname
+    end
   end
 
   def like_or_dislike_btn(deep)

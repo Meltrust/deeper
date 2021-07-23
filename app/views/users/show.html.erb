@@ -1,7 +1,7 @@
 <div class="row p0 m-0 h-100">
   <div class="col-12 col-xl-9 border-end">
     <div class="row col-12 p-0 w-auto position-relative cover-container">
-      <%= cl_image_tag(@user.cover_image.key, id: 'my-cover', class: 'img-fluid p-0 cover-img', :width=>1500, :height=>800, :opacity=>80, :effect=>"auto_brightness") %>
+      <%= cover_img(@client, @user) %>
       <div id="mContainer" class="modal-cover">
         <span class="close-cover">&times;</span>
         <img class="modal-contents-cover" id="my-cover-modal-expanded">

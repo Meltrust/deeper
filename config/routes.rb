@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:show]
+  resources :users, except: [:destroy]
 
   resources :deeps, only: [:index, :create] do
         resources :likes, only: [:create, :destroy]

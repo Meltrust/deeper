@@ -2,7 +2,10 @@
 
 > A social media app built with Ruby on Rails for sharing your daily wisdom!
 
-![SCREENSHOT](app/assets/images/home.png)
+<p align="center">
+  <img width="260" height="260" src="app/assets/images/deeper-SEO.png">
+</p>
+
 
 ### Login screen 
 

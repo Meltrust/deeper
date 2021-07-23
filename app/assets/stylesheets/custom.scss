@@ -51,10 +51,6 @@ h1.title {
   background-color: #f5f6f8;
 }
 
-aside {
-  // z-index: 1;
-}
-
 /* prettier-ignore */
 .side-nav {
   background:
@@ -124,6 +120,7 @@ hr {
   background-color: #364958;
   border: 0;
   opacity: 0.25;
+  display: none;
 }
 
 .secondary-top-nav-items {
@@ -347,6 +344,10 @@ hr {
   color: #9d9d9fbb;
 }
 
+.sidenav-link-buttons {
+  margin-top: 0.7rem;
+}
+
 // Only small screens
 @media only screen and (max-width: 700px) {
   .modal-content,
@@ -383,6 +384,10 @@ hr {
   #cover-form {
     top: 0;
     left: 0;
+  }
+
+  .sidenav-link-buttons {
+    margin-top: 1.22rem;
   }
 }
 
@@ -433,6 +438,14 @@ hr {
 
   .sidenav-user-badge-text {
     font-size: calc(0.3em + 1vw);
+  }
+
+  .sidenav-link-buttons {
+    margin-top: -0.223rem;
+  }
+
+  hr {
+    display: inline-block;
   }
 }
 

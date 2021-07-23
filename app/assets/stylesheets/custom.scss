@@ -52,7 +52,7 @@ h1.title {
 }
 
 aside {
-  z-index: 1;
+  // z-index: 1;
 }
 
 /* prettier-ignore */
@@ -209,7 +209,8 @@ hr {
 // Modal with caption for photo
 
 /* The Modal (background) */
-.modal {
+.modal,
+.modal-cover {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -231,6 +232,12 @@ hr {
   max-width: 700px;
 }
 
+.modal-contents-cover {
+  margin: auto;
+  display: block;
+  width: 70%;
+}
+
 /* Caption of Modal Image */
 #caption,
 #caption-cover {
@@ -246,6 +253,7 @@ hr {
 
 /* Add Animation */
 .modal-content,
+.modal-contents-cover,
 #caption,
 #caption-cover {
   animation-name: zoom;
@@ -341,7 +349,8 @@ hr {
 
 // Only small screens
 @media only screen and (max-width: 700px) {
-  .modal-content {
+  .modal-content,
+  .modal-contents-cover {
     width: 100%;
   }
 }
@@ -435,6 +444,7 @@ hr {
 
   .who-to-follow-section-container {
     max-height: 49rem;
+    z-index: 0;
   }
 
   .who-to-follow-section {

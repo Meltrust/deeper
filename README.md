@@ -2,14 +2,17 @@
 
 > A social media app built with Ruby on Rails for sharing your daily wisdom!
 
-<p align="center">
+<p align="left">
   <img width="260" height="260" src="app/assets/images/deeper-SEO.png">
 </p>
 
 
 ### Login screen 
 
-![SCREENSHOT](app/assets/images/login.png)
+![SCREENSHOT](app/assets/images/mobile-home.png)![SCREENSHOT](app/assets/images/mobile-followed-by.png)
+![SCREENSHOT](app/assets/images/mobile-whotofollow.png)![SCREENSHOT](app/assets/images/mobile-profile.png)
+
+
 
 ### User profile
 
@@ -17,7 +20,7 @@
 
 ### Responsive design
 
-![SCREENSHOT](app/assets/images/responsive.png)
+![SCREENSHOT](app/assets/images/login.png)
 
 ## Video presentation
 

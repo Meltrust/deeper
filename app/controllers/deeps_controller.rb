@@ -4,7 +4,6 @@ class DeepsController < ApplicationController
 
   # GET /deeps or /deeps.json
   def index
-    # @deeps = Deep.all
     @deep = Deep.new
     @user = User.find_by(params[:id])
     @users = User.all
@@ -14,6 +13,18 @@ class DeepsController < ApplicationController
     followsection_users
     followedbysection_users
     liked?
+    set_meta_tags title: 'Deeper',
+                  site: 'Deeper',
+                  description: 'Share your daily wisdom',
+
+                  og: {
+                    title: 'Deeper',
+                    description: 'Share your daily wisdom',
+                    type: 'website',
+                    url: request.original_url,
+                    image: Cloudinary::Utils.cloudinary_url('meta-img.png', gravity: 'face', crop: 'thumb',
+                                                                            width: '1200', height: '630')
+                  }
   end
 
   # GET /deeps/new

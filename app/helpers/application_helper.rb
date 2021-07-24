@@ -1,5 +1,4 @@
 module ApplicationHelper
-  # Number of cols for the second-main-column
   def truncated_name(client, user)
     if client.device_type == 'smartphone'
       user.fullname.split.select { |w| w.length <= 7 }.join(' ')
@@ -19,6 +18,8 @@ module ApplicationHelper
               deep_likes_path(deep), class: 'black-text likes-container', method: :post
     end
   end
+
+  # Number of cols for the second-main-column
 
   def second_main_column_cols
     if user_signed_in?

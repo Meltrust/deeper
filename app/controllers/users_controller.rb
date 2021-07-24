@@ -8,10 +8,21 @@ class UsersController < ApplicationController
     @deep = Deep.new
     @user_agent = request.user_agent
     @client = DeviceDetector.new(@user_agent)
-
     followsection_users
     timeline_deeps
     followedbysection_users
+    set_meta_tags title: @user.fullname,
+                  site: 'Deeper',
+                  description: 'Share your daily wisdom',
+
+                  og: {
+                    title: 'Deeper',
+                    description: 'Share your daily wisdom',
+                    type: 'website',
+                    url: request.original_url,
+                    image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'thumb',
+                                                                             width: '1200', height: '630')
+                  }
   end
 
   def follow

@@ -17,11 +17,11 @@ class UsersController < ApplicationController
 
                   og: {
                     title: 'Deeper',
-                    description: 'Share your daily wisdom',
+                    description: "#{@user.fullname.split[0]} is on Deeper! Share your daily wisdom",
                     type: 'website',
                     url: request.original_url,
-                    image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'thumb',
-                                                                             width: '1200', height: '630')
+                    image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'fill',
+                                                                             height: '1000', width: '1200')
                   }
   end
 

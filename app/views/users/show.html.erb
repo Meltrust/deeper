@@ -65,7 +65,7 @@
       <div class="d-flex flex-column justify-content-center align-items-center  profile-stats-pic-items mb-1 mb-lg-0">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <figure class="profile-stats-pic-container mx-3 mb-3">
-            <%= cl_image_tag(@user.photo.key, id: 'my-photo', class: 'rounded-circle profile-stats-pic', :width=>150, :height=>150, alt: @user.fullname,  :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+            <%= cl_image_tag(@user.photo.key, id: 'my-photo', class: 'rounded-circle profile-stats-pic', :width=>800, :height=>800, alt: @user.fullname,  :gravity=>"face", :radius=>"max", :crop=>"fill") %>
           </figure>
           <!-- The Modal -->
           <div id="my-photo-modal-container" class="modal">

@@ -1,3 +1,16 @@
+<% set_meta_tags title: @user.fullname,
+                  description: "#{@user.fullname.split[0]} is on Deeper! Share your daily wisdom",
+                  twitter: {
+                    card: 'summary',
+                    title: @user.fullname,
+                    description: "#{@user.fullname.split[0]} is on Deeper! Share your daily wisdom",
+                    image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'fill', height: '1000', width: '1200')
+                    },
+                  og: {
+                    title: @user.fullname,
+                    description: "#{@user.fullname.split[0]} is on Deeper! Share your daily wisdom",
+                    image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'fill', height: '1000', width: '1200')
+                  } %>
 <div class="row p0 m-0 h-100">
   <div class="col-12 col-xl-9 border-end">
     <div class="row col-12 p-0 w-auto position-relative cover-container">

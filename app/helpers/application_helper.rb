@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ApplicationHelperExtend
   def truncated_name(client, user)
     if client.device_type == 'smartphone'
       user.fullname.split.select { |w| w.length <= 7 }.join(' ')

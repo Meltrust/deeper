@@ -13,18 +13,6 @@ class DeepsController < ApplicationController
     followsection_users
     followedbysection_users
     liked?
-    set_meta_tags title: 'Deeper',
-                  site: 'Deeper',
-                  description: 'Share your daily wisdom',
-
-                  og: {
-                    title: 'Deeper',
-                    description: 'Share your daily wisdom',
-                    type: 'website',
-                    url: request.original_url,
-                    image: 'https://res.cloudinary.com/dvxcld/image/asset/v1627105360/meta-img-e0def810f2ec93ba67f683f3e22ec741.png',
-                    width: '1200', height: '630'
-                  }
   end
 
   # GET /deeps/new

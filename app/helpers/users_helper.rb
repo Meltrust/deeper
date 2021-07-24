@@ -29,7 +29,7 @@ module UsersHelper
 
   def user_deeps_header(user)
     if user.deeps.count.positive?
-      "ALL #{user.fullname.split.first} 's deeps"
+      "ALL #{user.fullname.split.first}'s deeps"
     else
       "#{user.fullname.split.first} HAS NO DEEPS YET"
     end

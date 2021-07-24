@@ -37,7 +37,7 @@ module ApplicationHelper
     return unless rails_admin_user?
 
     content_tag :li, class: 'nav-item' do
-      link_to 'Admin', rails_admin.dashboard_path, class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0'
+      link_to 'Admin', rails_admin_path, class: 'nav-link fs-5 fw-bold nav-text-dark nav-item ms-md-3 ms-lg-0'
     end
   end
 

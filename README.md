@@ -4,21 +4,14 @@
   <img width="22" height="22" src="app/assets/images/deeper-SEO.png"> 
   &nbsp;&nbsp;A social media webapp built with Ruby on Rails for sharing your deep daily quotes and wisdom.
 </blockquote>
-
+<hr>
 <br>
-
-
-## Stop reading and visit now!
-
-
-<br>
-
   
-## Screenshots
 
-<br>
 
 ### Tablet
+<hr>
+
 
 <br>
 
@@ -30,6 +23,8 @@
 <br>
 
 ### Smartphone
+<hr>
+
   
 <br>
 
@@ -46,6 +41,8 @@
 <br>
 
 ### Desktop (click for full size)
+<hr>
+
 
 <br>
 
@@ -56,9 +53,11 @@
 
 <br>
 <br>
+
+## Stop reading and visit now!
+
+
 <br>
-
-
 
 ## Video presentation
 

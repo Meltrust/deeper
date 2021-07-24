@@ -99,9 +99,13 @@ Users can visit every day to read deeps, or post them when they feel inspired.  
 ### Setup development environment on your machine
 
 
-- Ruby must be installed on your machine.
+- Ruby must be installed first.
 
 - Clone this repo to a folder.
+
+```bash
+   git clone https://github.com/Meltrust/deeper.git
+```
 
 - Install gems with:
 

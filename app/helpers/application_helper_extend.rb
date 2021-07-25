@@ -10,7 +10,7 @@ module ApplicationHelperExtend
       canonical: request.original_url,
       noindex: !Rails.env.production?,
       twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
         site: 'Deeper',
         title: 'Deeper',
         description: 'Share your daily wisdom',

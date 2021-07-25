@@ -57,11 +57,13 @@
 https://deeper-app.herokuapp.com/
 
 
-<br>
+
 
 ## Video presentation
 
 https://www.loom.com/share/c511c73841ec4e25935a2b985be39691
+
+<br>
 
 ## Why is this project interesting/useful?
 

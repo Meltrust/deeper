@@ -7,7 +7,7 @@ module ApplicationHelperExtend
       separator: '|',
       description: 'Share your daily wisdom',
       keywords: 'follow, wisdom, quotes',
-      canonical: request.original_url,
+      canonical: 'https://deeper-app.herokuapp.com/',
       noindex: !Rails.env.production?,
       twitter: {
         card: 'summary_large_image',

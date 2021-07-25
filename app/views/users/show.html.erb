@@ -8,6 +8,7 @@
                     },
                   og: {
                     title: @user.fullname,
+                    url: "https://deeper-app.herokuapp.com#{(url_for(user_path(@user)))}",
                     description: "#{@user.fullname.split[0]} is on Deeper! Share your daily wisdom",
                     image: Cloudinary::Utils.cloudinary_url(@user.photo.key, gravity: 'face', crop: 'fill', height: '1000', width: '1200')
                   } %>

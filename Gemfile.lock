@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 5169f7b03761b927ffa2bea39cd14b55c6bb0ca5
+  branch: master
+  specs:
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/mimemagicrb/mimemagic.git
   revision: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
   ref: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
@@ -51,6 +59,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.1.3.2)
       activesupport (= 6.1.3.2)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.1.3.2)
       activemodel (= 6.1.3.2)
       activesupport (= 6.1.3.2)
@@ -70,6 +82,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
+    awesome_print (1.9.2)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.16)
     better_errors (2.9.1)
@@ -82,7 +95,6 @@ GEM
     bootsnap (1.7.5)
       msgpack (~> 1.0)
     builder (3.2.4)
-    byebug (11.1.3)
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -98,13 +110,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    database_cleaner (2.0.1)
-      database_cleaner-active_record (~> 2.0.0)
-    database_cleaner-active_record (2.0.1)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
+    device_detector (1.0.5)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -119,7 +126,14 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubi (1.10.0)
     eventmachine (1.2.7)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.15.3)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     formatador (0.3.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -138,6 +152,9 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    haml (5.2.1)
+      temple (>= 0.8.0)
+      tilt
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -146,6 +163,24 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jquery-rails (4.4.0)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -156,6 +191,8 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
+    meta-tags (2.14.0)
+      actionpack (>= 3.2.0, < 6.2)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -165,6 +202,7 @@ GEM
     msgpack (1.4.2)
     multi_json (1.15.0)
     nenv (0.3.0)
+    nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-linux)
@@ -187,6 +225,9 @@ GEM
     rack (2.2.3)
     rack-livereload (0.3.17)
       rack
+    rack-pjax (1.1.0)
+      nokogiri (~> 1.5)
+      rack (>= 1.1)
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -211,6 +252,18 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails_admin (2.1.1)
+      activemodel-serializers-xml (>= 1.0)
+      builder (~> 3.1)
+      haml (>= 4.0, < 6)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (>= 5.0, < 7)
+      kaminari (>= 0.14, < 2.0)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 5.0, < 7)
+      remotipart (~> 1.3)
+      sassc-rails (>= 1.3, < 3)
     railties (6.1.3.2)
       actionpack (= 6.1.3.2)
       activesupport (= 6.1.3.2)
@@ -223,6 +276,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    remotipart (1.4.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -292,6 +346,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -330,23 +385,29 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  awesome_print
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.4)
-  byebug
   capybara (>= 3.26)
   cloudinary
-  database_cleaner
+  device_detector
   devise
+  factory_bot_rails
+  faker!
+  figaro
   guard
   guard-livereload (~> 2.5)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  meta-tags
   mimemagic!
   pg (~> 1.1)
+  pry
   puma (~> 5.0)
   rack-livereload
   rails (~> 6.1.3, >= 6.1.3.2)
+  rails_admin (~> 2.0)
   rexml
   rspec
   rspec-rails (~> 5.0.0)

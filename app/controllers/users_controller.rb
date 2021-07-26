@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @deeps = @user.deeps.ordered_by_most_recent
     @deep = Deep.new
-
+    @user_agent = request.user_agent
+    @client = DeviceDetector.new(@user_agent)
     followsection_users
     timeline_deeps
     followedbysection_users

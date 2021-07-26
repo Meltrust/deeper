@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "deeps#index"
 
   devise_for :users
 
-  resources :users
+  resources :users, except: [:destroy]
 
-  resources :deeps do
+  resources :deeps, only: [:index, :create] do
         resources :likes, only: [:create, :destroy]
   end
   

@@ -12,9 +12,6 @@
       <% if @current_user.followeds.include?(user) %>
       <% else %>
         <%= link_to ("<i class=' position-relative fas fa-plus-circle  follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0'></i>").html_safe, follow_user_path(user), method: 'post' %>
-        <!--
-        <a href="<%= follow_user_path(user) %>" method="POST"><i aria-hidden="true" class=" position-relative fas fa-plus-circle  follow-button mt-3 mt-sm-2 mt-lg-2 mt-xxl-0 p-0"></i></a>
--->
       <% end %>
     </div>
   </div>

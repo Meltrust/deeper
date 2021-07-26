@@ -4,25 +4,21 @@ class DeepsController < ApplicationController
 
   # GET /deeps or /deeps.json
   def index
-    # @deeps = Deep.all
     @deep = Deep.new
     @user = User.find_by(params[:id])
     @users = User.all
+    @user_agent = request.user_agent
+    @client = DeviceDetector.new(@user_agent)
     timeline_deeps
     followsection_users
     followedbysection_users
+    liked?
   end
-
-  # GET /deeps/1 or /deeps/1.json
-  def show; end
 
   # GET /deeps/new
   def new
     @deep = Deep.new
   end
-
-  # GET /deeps/1/edit
-  def edit; end
 
   # POST /deeps or /deeps.json
   def create
@@ -32,24 +28,6 @@ class DeepsController < ApplicationController
       redirect_to root_path, notice: 'Deep was posted.'
     else
       redirect_to root_path, alert: 'Deep was not created'
-    end
-  end
-
-  # PATCH/PUT /deeps/1 or /deeps/1.json
-  def update
-    if @deep.update(deep_params)
-      redirect_to @deep, notice: 'Deep was successfully updated.'
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /deeps/1 or /deeps/1.json
-  def destroy
-    @deep.destroy
-    respond_to do |format|
-      format.html { redirect_to deeps_url, notice: 'Deep was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -65,11 +43,14 @@ class DeepsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def liked?
+    @pre_like = @deep.likes.find { |like| like.user_id == current_user.id }
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
 
-  # correct this=> not follower, should be followed
   def timeline_deeps
     user_and_following_deeps = [current_user.id] + current_user.followeds.map(&:id)
     @timeline_deeps ||= Deep.where(user_id: user_and_following_deeps).ordered_by_most_recent.includes(:user)

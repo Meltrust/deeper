@@ -1,0 +1,9 @@
+<article class="d-flex pt-3">
+  <%= cl_image_tag(deep.user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb") %>
+</figure>
+<div class="d-flex flex-column p-2 pt-0 w-100">
+  <p class="pb-3 mb-0 small lh-sm deep-text-dark"> <%= deep.text %>
+  </p>
+  <strong class="blockquote-footer black-text d-block text-gray-dark m-0 align-self-end align-self-lg-stretch"><%= deep.user.fullname %></strong>
+</div>
+</article>

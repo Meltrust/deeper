@@ -1,27 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Deeps</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Deep</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @deeps.each do |deep| %>
-      <tr>
-        <td><%= deep.deep %></td>
-        <td><%= link_to 'Show', deep %></td>
-        <td><%= link_to 'Edit', edit_deep_path(deep) %></td>
-        <td><%= link_to 'Destroy', deep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Deep', new_deep_path %>
+<div class="row p0 m-0 h-100">
+  <div class="col-12 col-xl-9 border-end">
+    <header class="row">
+      <nav class="nav col-12 p-0 border-bottom text-decoration-none">
+        <li class="nav-item p-0 p-sm-2 p-lg-3 position-relative secondary-top-nav-items-active secondary-top-nav-items">
+          <a href="#" class="nav-link nav-text-dark secondary-top-nav-items-text ms-1 ms-sm-3 ms-lg-2 black-text ms-2">DEEPS</a>
+        </li>
+      </nav>
+    </header>
+    <main class="container d-flex flex-column px-1 px-md-4">
+      <%= render 'form', deep: @deep %>
+      <div class=" p-2 p-md-5 mt-4 bg-white shadow-sm rounded ">
+        <h6 class="border-bottom pb-2 mb-0 deep-text-blue fw-bold"><%= new_deeps_header(@timeline_deeps) %></h6>
+        <section class="deeps-section-container">
+          <%= render @timeline_deeps %>
+        </section>
+      </div>
+    </main>
+  </div>
+  <aside class="border border-start-0 border-top-0 border-bottom-0  col-12 col-xl-3 who-to-follow-section-container">
+    <header class="row">
+      <nav class="nav col-12 mb-sm-3 mb-lg-0 mt-4 mt-lg-0 p-lg-0 who-to-follow-nav-borders text-decoration-none justify-content-center justify-content-lg-start text-start p-0 border-start-0">
+        <li class="nav-item p-3 px-lg-3 pt-lg-3 secondary-top-nav-items-not-active position-relative secondary-top-nav-items">
+          <a href="#" class="nav-link deep-text-dark-semitransparent secondary-top-nav-items-text ms-0 ms-xxl-2">DEEPERS TO FOLLOW</a>
+        </li>
+      </nav>
+    </header>
+    <section class="p-2 p-md-0 mt-0 mt-sm-1 mt-lg-5 who-to-follow-items ms-md-5 ms-lg-0 who-to-follow-section">
+      <%= render @followsection_users %>
+    </section>
+  </aside>
+</div>

@@ -1,0 +1,33 @@
+<% if current_user %>
+  <aside class="col-2 side-nav" >
+    <div class="row flex-column">
+      <%= link_to user_path(current_user.id), class: "d-flex flex-wrap p-1 px-md-4 py-md-0 py-lg-3 mb-1 mt-2 mt-lg-0 align-items-center justify-content-evenly flex-column flex-md-row text-decoration-none" do %>
+        <%= content_tag :figure, class: "w-auto mt-1 my-md-0 mb-2 m-lg-0" do %>
+          <%= cl_image_tag(current_user.photo.key, class: 'm-0 m-sm-1 headshot w-auto', :width=>60, :height=>60, :gravity=>"face", :crop=>"thumb") %>
+        <% end %>
+        <%= content_tag :div, truncated_name(@client, current_user), class: 'sidenav-user-badge-text fw-bold text-center w-auto nav-text-dark p-0 pt-lg-2 text-capitalize' %>
+      <% end %>
+      <hr>
+      <div class="d-flex p-0 m-0 flex-column ">
+        <div class="d-flex flex-column flex-xl-row text-darkish-white justify-content-evenly p-0 side-nav-followers-container" >
+          <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-border sidenav-followers-text w-100">
+            <div class="fw-bold"><%= user_followers(current_user) %></div>
+            <div class="nav-text-dark">Followers</div>
+          </div>
+          <div class="d-flex flex-column p-3 align-items-center justify-content-evenly sidenav-followers-text w-100">
+            <div class="fw-bold"><%= user_followeds(current_user) %></div>
+            <div class="nav-text-dark">Following</div>
+          </div>
+        </div>
+        <nav class="nav nav-pills flex-column mb-auto p-0 text-center text-md-start sidenav-link-buttons order-first order-xl-last">
+          <li class="nav-item">
+            <%= left_nav_home %>
+          </li>
+          <li class="nav-item">
+            <%= left_nav_profile %>
+          </li>
+        </nav>
+      </div>
+    </div>
+  </aside>
+<% end %>

@@ -1,0 +1,19 @@
+<article class="d-flex pt-3">
+  <%= link_to user_path(deep.user.id) do %>
+    <figure class="w-auto mt-0 me-0 my-md-0 mb-2 me-lg-3 m-lg-0">
+      <%= cl_image_tag(deep.user.photo.key, class: 'm-0 m-sm-1 mt-sm-0 deeps-headshot', :width=>55, :height=>55, :gravity=>"face", :crop=>"thumb") %>
+    </figure>
+  <% end %>
+  <div class="d-flex flex-column p-2 pt-0 w-100">
+    <p class="pb-3 mb-0 small lh-sm deep-text-dark deep-text">"<%= deep.text %>"
+    </p>
+    <div class="d-flex flex-row justify-content-between">
+      <strong class="blockquote-footer black-text d-block text-gray-dark m-0 align-self-end align-self-lg-stretch"><%= deep.user.fullname %>
+      </strong>
+      <span class="d-flex flex-row align-self-end align-items-center">
+        <span class="deep-text-dark likes-count"><%= deep_likes_counter(deep) %> </span>
+        <%= like_or_dislike_btn(deep) %>
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :deeps
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "deeps#index"
+
+  devise_for :users
+
+  resources :users, except: [:destroy]
+
+  resources :deeps, only: [:index, :create] do
+        resources :likes, only: [:create, :destroy]
+  end
+  
+  post '/users/:id/follow', to: "users#follow", as: "follow_user"
+  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+  
 end

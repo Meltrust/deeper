@@ -1,8 +1,7 @@
-<%= form_with(model: deep) do |form| %>
-  <% if deep.errors.any? %>
+<%= form_with(model: @deep, class: "p-2 p-md-5 bg-white mt-4 mt-lg-5 shadow-sm rounded")   do |form| %>
+  <% if @deep.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(deep.errors.count, "error") %> prohibited this deep from being saved:</h2>
-
       <ul>
         <% deep.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,13 +9,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :deep %>
-    <%= form.text_area :deep %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.label :deep, 'DEEP SOMETHING', class: "form-label fw-bold deep-text-dark-semitransparent" %>
+  <%= form.text_field :text, class: 'form-control p-2 p-lg-3', placeholder: 'Compose new deep', id: :deep_text %>
 <% end %>

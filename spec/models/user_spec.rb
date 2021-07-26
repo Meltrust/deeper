@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
 
       expect(follow).to eq(false)
     end
-    it 'User can submit deeps' do
+    it 'Users can submit deeps' do
       testuser1.deeps.create(text: 'hi')
 
       expect(testuser1.deeps.last.text).to eq('hi')

@@ -27,6 +27,8 @@ group :development, :test do
   gem 'rexml'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '>= 1.0', '< 2.0'
+  gem 'what_methods'
+  gem 'wirble'
 end
 
 group :development do
